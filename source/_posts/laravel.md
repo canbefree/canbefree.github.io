@@ -46,6 +46,7 @@ service类提供方法
 
 #### 创建provider
 provider 注册服务
+
 ```
 class AuthServiceProvider extends ServiceProvider
 {    
@@ -56,6 +57,19 @@ class AuthServiceProvider extends ServiceProvider
          });
      }
 }
+```
+
+```php
+<?php #file config/app.php
+#.....
+    'providers' => [
+            /**
+         * 自己创建的facade
+         */
+        \App\Providers\TestServiceProvider::class,
+
+    ],
+#.....
 ```
 
 > 实现注入依赖。用对象名就可以调用service方法。方便后期维护，service的名称和内容都可以修改。只要provider 注册时修改到对应的泪。
@@ -70,8 +84,23 @@ $service->callMe("");
 #### FACADE
 1. laravel5创建一个facade，可以将某个service注册个门面，这样，使用的时候就不需要麻烦地use 了
 2. facade调用service方法都通过静态方法调用。
+3. 使用facade前提必须注册provider,以及配置他的别名
+
 ```php
-<?php 
+<?php #file config/app.php
+#.....
+    'aliases' => [
+            /**
+         * 自己创建的facade
+         */
+        'TestF' => App\Facades\TestFacade::class,
+
+    ],
+#.....
+```
+
+```php
+<?php  #facade方法调用都是静态方法。 如TestF::callMe("TestController");
     ·····
     public static function __callStatic($method, $args)
     {
@@ -104,6 +133,116 @@ $service->callMe("");
     }
 ?>
 ```
+
+### 事件
+>记录一个click路由每个id的提交次数。
+#### 生成类
+指定文件\app\Providers\EventServiceProvider.php
+```php
+    protected $listen = [
+        'App\Events\SomeEvent' => [
+            'App\Listeners\EventListener',
+        ],
+    ];
+```
+> 执行 php artisan event:generate 生成 app\Events\SomeEvent.php 以及 app\Listeners\EventListener.php 文件
+
+#### 初始化事件
+修改SomeEvent构造方法
+```php
+    public function __construct($post)
+    {
+        //
+        $this->post = $post;
+    }
+```
+
+#### 定义监听事件
+修改 EventListener
+```php
+    /**
+     * Create the event listener.
+     *
+     * @return void
+     */
+    public function __construct(Store $session)
+    {
+        //
+        $this->session = $session;
+    }
+
+    /**
+     * Handle the event.
+     *
+     * @param  SomeEvent  $event
+     * @return void
+     */
+    public function handle(SomeEvent $event)
+    {
+        $post = $event->post;
+        $key = "click:".$post;
+        $value = $this->session->get("$key")+1;
+        $this->session->set($key,$value);
+    }
+```
+
+#### 触发事件
+```php
+use Illuminate\Session\Store;
+
+class TestController extends Controller
+{
+
+    //依赖注入
+    public function __construct(Store $session)
+    {
+        $this->session = $session;
+    }
+
+
+    public function click($id = 0)
+    {
+        $key = "click:".$id;
+        Event::fire(new SomeEvent($id));
+        echo "该界面已经被点击了";
+        var_export($this->session->get($key));
+    }
+}
+```
+
+### 邮件设置
+#### 完善配置
+```ini
+MAIL_DRIVER=smtp
+MAIL_FROM_ADDRESS=  //用户邮件地址
+MAIL_HOST=mailtrap.io //邮件服务器，可以去邮件设置查看。
+MAIL_PORT=2525 //ssl 默认 465
+MAIL_USERNAME=null  //用户名
+MAIL_PASSWORD=null  //用户密码
+MAIL_ENCRYPTION=null //根据端口选择对应的加密方式
+MAIL_FROM_NAME=neoxie //发送人姓名
+```
+#### 发送纯文本邮件
+```php
+        Mail::raw('你好，我是PHP程序！', function ($message) {
+            $to = '452198757@qq.com';
+            $message ->to($to)->subject('纯文本信息邮件测试');
+        });
+
+```
+
+#### 发送html邮件
+> 这个需要创建 mails.test模板
+```
+        $name = '谢宇天';
+        $flag = Mail::send('mails.test',['name'=>$name],function($message){
+            $to = '452198757@qq.com';
+            $message ->to($to)->subject('邮件测试');
+        });
+```
+
+
+
 
 ### Elixir 
 
@@ -197,8 +336,9 @@ Hello, {!! $name !!}. //输出name的内容 不转义
 @endwhile
 ```
 
-## 单元测试
-安装phpunit
+
+### 单元测试
+####安装phpunit
 ```bash
 ➜ wget https://phar.phpunit.de/phpunit.phar
 
@@ -210,8 +350,54 @@ Hello, {!! $name !!}. //输出name的内容 不转义
 PHPUnit 5.4.0 by Sebastian Bergmann and contributors.
 ```
 
+#### 执行测试
+```console
+$ phpunit
+```
+#### 编写测试用例
+```console
+php artisan make:test SigTest
+
+php artisan make:model Models/SigModel
+```
+```php
+class SigModel extends Model
+{
+    //生成sig签名
+    public static function sign($post){
+        unset($post['sig']);
+        sort($post);
+        return md5(serialize($post));
+    }
 
 
-### 事件 
+    public static function checkSig($post){
+        $sig = $post['sig'];
+        unset($post['sig']);
+        $sign = self::sign($post);
+        return $sig == $sign?true:false;
+    }
+}
+```
+
+```php
+use App\Models\SigModel;
+class SigTest extends TestCase
+{
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testExample()
+    {
+        $post = array('11',123,123,123);
+        $post['sig'] = SigModel::sign($post);
+        $this->assertTrue(SigModel::checkSig($post));
+    }
+}
+```
+
+
 
 
