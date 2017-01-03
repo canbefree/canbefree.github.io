@@ -42,6 +42,18 @@ deploy:
 > `$ hexo d` 发布到github博客上
 > `git add .   git commit -m " " git push origin hexo` 修改的文件备份到分支上面
 
+
+### hexo迁移
+考虑的工作环境的变换。hexo如何在别的机器上部署同样的博客环境也很重要
+1. hexo init
+2. 下载主题上传到themes目录.(主题目录我这设置了git忽略，具体主题可以fork别人的)
+3. 将 github分支hexo上的文章目录和主目录配置文件 _config.yml上传
+4. npm install hexo-deployer-git --save 安装git插件
+5. hexo clean
+6. hexo g
+7. hexo d
+
+
 ### yo自定义主题
 
 #### 生成初始文件
