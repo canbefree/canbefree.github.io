@@ -100,12 +100,25 @@ apply()的参数为空时，默认调用全局对象。因此，这时的运行�
 
 
 ## 如何开发一个js插件
+使用匿名函数
 ```js
-	'use strict'
 	;(function(window){
-		var disableDiv = function(){
+	    'use strict'
+		c = function(){
 			
 		}
+		window.c = C;
 	})(window)
+```
 
+使用列表的方式
+```js
+    var _plugin = {
+        'proper':{
+            'height':100
+        },
+        'init': function(){
+               this.height = _plugin.height;
+        }
+    }
 ```
