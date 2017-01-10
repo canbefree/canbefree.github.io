@@ -7,16 +7,16 @@ tags:
     - less
     - swing
 ---
-
-----
 接触到Hexo,网上接触大量自定义的博客。他们主页的个性,内容简明。对比下自己的博客。感受到了深深的伤害。
+
+-------
 
 ### Hexo博客搭建
 
 #### 新建github仓库
 > 命名要规范： `canbefree.github.io`
 
-github上面有个页面形式(git博客),以及目录形式(git源码)
+现在点击访问 [canbefree.github.io](http://canbefree.github.io) 看看有没有生效
 
 #### 安装hexo
 > 安装 `nodejs`  
@@ -37,13 +37,18 @@ deploy:
 将 `hexo init` 生成的文件全部提交的github的分支hexo上（相当于文件备份）
 
 #### 发布流程
+
 > `$ hexo clean`
 > `$ hexo generate` 生成静态文件
+> `npm install hexo-deployer-git --save` 安装git插件
 > `$ hexo d` 发布到github博客上
 > `git add .   git commit -m " " git push origin hexo` 修改的文件备份到分支上面
 
+<br>
+<br>
 
 ### hexo迁移
+####  部署blog工作环境
 考虑的工作环境的变换。hexo如何在别的机器上部署同样的博客环境也很重要
 1. hexo init
 2. 下载主题上传到themes目录.(主题目录我这设置了git忽略，具体主题可以fork别人的)
@@ -53,39 +58,34 @@ deploy:
 6. hexo g
 7. hexo d
 
+#### 博客部署 
+鉴于国内访问github的速度，估计很多人都没有打开博客的欲望。
+##### 借助云服务器部署
+> hexo -d 生成的静态页面可以直接部署到服务器上面。 找一台国内服务器能很快部署上去。
 
-### yo自定义主题
+##### 借助coding.net部署
+1.创建coding账号
+2.[创建新的项目](#1)
+3.[加入ssh个人秘钥并测试](#2)
+4.[修改hexo _config.yml配置文件](#3)
+5.push到博客
+6.设置coding(点击项目的 **PAGES 服务** )
 
-#### 生成初始文件
-```bash
-    npm install generator-hexo-theme
-    yo hexo-theme
+<span id="1" >项目名称需要和你的用户名一致,不然可能导致你的css文件 **404 error ** </span>
+<span id="2" >forget about ** SSH ** it does't work</span>
+<span id="3" >
+修改git部分
+```yaml
+deploy:
+  type: git
+#  repo: https://github.com/canbefree/canbefree.github.io
+  repo: https://git.coding.net/canbefree/canbefree.git
+  branch: master
 ```
-> 取名字 freestyle
-> 选择 swig
-> 选择 scss
-> 选择 bower.json
-> 将主题拷贝到项目文件夹下
+</span>
 
-#### 主题结构查看
->layout #`布局文件`
->>includes              
->>>layout.swig          
->>>pagination.swig      
->>>recent-posts.swig    
-
->>archive.swig
->>category.swig
->>index.swig
->>page.swig
->>post.swig
->>tag.swig
-
->source `#资源文件`
->_config_yml `主题配置文件`
-
-
-
+<br>
+<br>
 ### HEXO使用
 
 #### 本地图片链接
@@ -119,6 +119,9 @@ post_asset_folder: true # 打开之后 公共图片文件引入方式将不可�
 {% asset_img swig.PNG This is an example image %}
 
 ```
+
+<br>
+<br>
 ### 相关模块
 
 #### swig一些自定义函数 
@@ -169,3 +172,36 @@ hexo.call(cmd, args)
     // Ignore plugins whose name is not started with "hexo-"
     if (name.substring(0, 5) !== 'hexo-') return false;
 ```
+
+<br>
+<br>
+### yo自定义主题
+
+#### 生成初始文件
+```bash
+    npm install generator-hexo-theme
+    yo hexo-theme
+```
+> 取名字 freestyle
+> 选择 swig
+> 选择 scss
+> 选择 bower.json
+> 将主题拷贝到项目文件夹下
+
+#### 主题结构查看
+>layout #`布局文件`
+>>includes              
+>>>layout.swig          
+>>>pagination.swig      
+>>>recent-posts.swig    
+
+>>archive.swig
+>>category.swig
+>>index.swig
+>>page.swig
+>>post.swig
+>>tag.swig
+
+>source `#资源文件`
+>_config_yml `主题配置文件`
+

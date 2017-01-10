@@ -69,7 +69,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/canbefree/canbefree.github.io
+#  repo: https://github.com/canbefree/canbefree.github.io
+  repo: https://git.coding.net/canbefree/canbefree.git
   branch: master
 
 
