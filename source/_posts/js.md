@@ -11,6 +11,13 @@ js..
 
 ### js 基本语法
 
+#### js对象
+js索引不用写成字符串形式
+```js
+	var a = "123";
+	console.log({a:a}) //output: {a:123} 
+```
+
 #### use strict 
 js文件开头记得加上这个。
 ```js

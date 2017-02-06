@@ -24,3 +24,7 @@ tags: [liunx,vim]
 [github搜索vim](https://github.com/search?utf8=%E2%9C%93&q=vim)
 
 
+
+### 图例
+
+![vim](/vim.png)
