@@ -27,4 +27,4 @@ tags: [liunx,vim]
 
 ### 图例
 
-![vim](/vim.png)
+{% asset_link vim.png  %}
