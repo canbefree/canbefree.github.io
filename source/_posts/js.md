@@ -235,7 +235,7 @@ call实现继承
 			console.log("I'm a man");
 		}
 	}
-
+    
 	var p = new Person()
 	p.setName("xiaoming")
 	p.getName()
@@ -269,3 +269,34 @@ call实现继承
 
 
 ### js 跨域
+#### ajax 跨域问题
+
+> 访问报 Access-Control-Allow-Origin 错误，但查看respone有数据响应。
+
+可以请求到数据。能不能解析跟浏览器安全级别有关。
+
+最节省的办法是在服务器后端代码中加入：
+header('Access-Control-Allow-Origin:*'); //也可以在服务器配置
+
+个人应用还可以调整浏览器安全级别到解决问题。
+
+##### JSONP
+
+ajax还提供一种跨域的解决方案，JSONP,实际上，JSONP采用的是 HTML 里 <script></script>的标签远程调用 javascript来实现的。
+所有一般来说 JSONP只支持GET方式。
+
+
+##### 类RPC协议,以及Swoole等服务器方法。
+PHP RPC就不多介绍了。跨语言，跨域的一种全新协议。轻量。
+
+
+#### 页面内跨域
+父页面调用子页面的方法可通过：FrameName.window.childMethod();(这种方式兼容各种浏览器)
+
+##### 不同源跨域
+如果我的iframe里面嵌套的是第三方的网站，如何实现数据通信？
+实现的技巧就是利用 location 对象的 hash 值，通过它传递通信数据，我们只需要在父页面设置 iframe的 src 后面多加个#data 字符串（data就是你要传递的数据），然后在 子页面 中通过某种方式能即时的获取到这儿 data 就可以了，其实常用的一种方式就是：
+1. 在 子页面 中通过 setInterval 方法设置定时器， 监听 location.href 的变化即可获得上面的 data 信息
+2. 然后 子页面 就能根据这个 data 信息进行相应的逻辑处理。
+
+

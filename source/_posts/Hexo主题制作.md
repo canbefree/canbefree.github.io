@@ -205,3 +205,6 @@ hexo.call(cmd, args)
 >source `#资源文件`
 >_config_yml `主题配置文件`
 
+#### 站内搜索
+
+http://blog.niices.com/Hexo-Next-Algolia-Search/
