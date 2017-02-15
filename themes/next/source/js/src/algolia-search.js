@@ -2,7 +2,6 @@
 /*jshint camelcase: false */
 
 $(document).ready(function () {
-  debugger;
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
                                algoliaSettings.apiKey &&

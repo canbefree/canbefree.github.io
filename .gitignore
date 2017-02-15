@@ -7,7 +7,7 @@ public/
 .deploy*/
 .idea/
 debug.log
-themes/
+themes/landscape
 scaffolds
 npm-debug.log
 package.json
