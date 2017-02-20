@@ -6,7 +6,7 @@ tags:
     - cpp
 ---
 
-使用广泛,难以被淘汰。 C给我的认知是这个。 
+
 -----
 
 ### 数据结构
@@ -35,8 +35,8 @@ tags:
 ```
 #### 枚举
 ```cpp
-enum Week {monday,tuesday,wednesday,thursday,friday,saturday,sunday}; //取值为 0-7
-enum Bits {one =1, two=2, three=5}; //取值为 0-5
+enum Week {monday,tuesday,wednesday,thursday,friday,saturday,sunday};
+enum Bits {one =1, two=2, three=5}; 
 ```
 #### 容器
 
