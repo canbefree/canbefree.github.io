@@ -60,7 +60,6 @@ delete **只能**用来释放new分配的内存。 delete ps; 指针本身未删
 #### 函数模板
 ```cpp
 template <typename AnyType>
-
 AnyType Sum(AnyType a, AnyType b){
 	return a + b;
 }

@@ -26,3 +26,11 @@ spawn scp -P 3600 user@$ipaddr:/data/wwwroot/xxlanldord_logdata/requestlog/detai
 expect eof
 exit
 ```
+
+### ECHO用法
+命令通过管道来执行。
+```bash
+  echo "CONFIG GET *"|redis-cli
+```
+颜色改变
+echo -e "\033[44;37;5m ME\033[0m COOL" 
