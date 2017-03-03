@@ -111,3 +111,6 @@ explain(sql)
 
 #### mysql gone away
 1.用mysql_ping可以发起重连(单例模式特别注意)
+
+
+#### 关于引擎

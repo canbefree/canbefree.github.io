@@ -25,11 +25,11 @@ $ /usr/local/php/bin/php -i |grep configure
 
 ./configure  --prefix=/usr/local/php54 --with-config-file-path=/usr/local/php54/etc --with-curl=/usr/local  --enable-fpm  --with-mysql --with-mysqli --enable-sockets --enable-fastcgi 
 
-./configure  --prefix=/usr/local/php7 --with-config-file-path=/usr/local/php7/etc  --with-mysqli --with-iconv-dir=/usr/local --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl=/usr/local  --enable-mbregex  --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap  --enable-zip --with-bz2
+./configure  --prefix=/usr/local/php7 --with-pdo-mysql=shared,mysqlnd --with-config-file-path=/usr/local/php7/etc  --with-mysqli --with-iconv-dir=/usr/local --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl=/usr/local  --enable-mbregex  --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap  --enable-zip --with-bz2
 
 ```
-> added to Makefile to EXTRA_LIBS at the end "-llber" (报错 ber_scanf
-> 生成的Makefile文件 找到首字为EXTRA_LIBS 加上 -llber选项
+* added to Makefile to EXTRA_LIBS at the end "-llber" (报错 ber_scanf *
+> 生成的Makefile文件 找到首字为EXTRA_LIBS 加上 -llber选项 (php7.0不用处理)
 
 #### make
 > --with-png-dir 带-dir后缀的表明这个路径下有so文件
@@ -72,6 +72,9 @@ $ /usr/local/php53/bin/php -i |grep php.ini
 ```
 $ sudo cp php.ini-development /usr/local/php53/etc/php.ini
 ```
+
+
+
 #### nginx配置
 
 > SAFE MODE Restriction in effect. The script whose uid is 40019 is not allowed to access  

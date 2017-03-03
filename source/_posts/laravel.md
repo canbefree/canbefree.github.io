@@ -30,6 +30,11 @@ php artisan make:middleware Bysso/AuthMiddleware
 
 ### 服务提供者(PROVIDER)
 
+为什么要用服务提供者？
+1.我建立了一个服务，当应用需要调用这个服务的时候，就引用它。后来业务增长，代码到处都用到了这个服务。
+有一天这个服务废弃了,我需要遍历所有的代码去修改它。岂不是很不方便。（代码迁移,修改类名,基础架构修改比如DB存储和分布式存储）
+
+
 >创建一个服务提供者的总结：
 1.先创建一个服务类的接口，规范，
 2.创建服务类，
@@ -72,7 +77,7 @@ class AuthServiceProvider extends ServiceProvider
 #.....
 ```
 
-> 实现注入依赖。用对象名就可以调用service方法。方便后期维护，service的名称和内容都可以修改。只要provider 注册时修改到对应的泪。
+> 实现注入依赖。用对象名就可以调用service方法。方便后期维护，service的名称和内容都可以修改。只要provider 注册时修改到对应的类。
 
 ```
 AjaxResponseService $service;

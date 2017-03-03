@@ -32,3 +32,23 @@ tags:
         }
 ?>
 ```
+
+### 关于threading里面的 join setDaemon
+#### join
+```python
+def pr(i):
+	time.sleep(1)
+	print "log:"+str(i)
+
+
+if __name__ =="__main__":
+	for i in range(0,100):
+		t = threading.Thread(target=pr,args=(i,))
+		t.start()
+		t.join()
+	print "done"
+
+```
+>结果是一秒输出一行。
+
+当子线程执行时，主线程必须等待他结束方可继续执行。所以阻塞了。

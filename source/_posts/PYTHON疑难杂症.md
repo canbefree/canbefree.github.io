@@ -20,5 +20,12 @@ tags: [python,problem]
    pip install C:\Users\NeoXie\Downloads\MySQL_python-1.2.5-cp27-none-win_amd64.whl  pip install 
 ```
 
-### 编译难
-####
+
+### 字典
+>python 字典与php索引数组不同。与json对象类似。具体如下
+```python
+di = {"a":"b","d":"c"}
+
+print "a" in di #True
+print "b" in di #False
+```

@@ -7,7 +7,17 @@ tags:
 
 python 简单易用 掌握少许的基本语法就能解决一大推问题。
 
+
 ----------------
+### IPYTHON
+#### 查看 %magic
+
+```python
+import random
+random??
+random?
+```
+
 ### python处理文件
 1.打开文件(最好用上下问管理的方式打开,这样能保证资源的释放 ** with **)
 ```python

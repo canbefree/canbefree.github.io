@@ -8,9 +8,6 @@ tags:
 ---
 
 
-
-
-
 ## 基本语法
 
 ### 变量
@@ -23,7 +20,7 @@ done
 ```
 #### 使用变量
 ```
-skill="12312"
+skill="12312" #赋值前后不要刘空格 
 echo "I am good at ${skill}Script"
 echo $skill
 ```
@@ -58,6 +55,9 @@ string="runoob is a great company" #查找子字符串
 echo `expr index "$string" is`  # 输出 8
 
 ```
+
+##### DATA
+date +"%Y%m%d"
 
 #### 数组
 ```
@@ -164,9 +164,19 @@ echo $?  #输出 def 的返回值。
 
 ```
 
-#### 函数参数
+### 执行外部程序
+```bash
+dir_list = $(ls)
+dir_list = `ls`
+exec ls
+```
+exec : 执行exec 当前上下文就直接结束了。此时不会输出 "done"
+```bash
+exec ls
+echo done
+```
 
-
+$(),`` 方法类似，都是直接执行,并将结果返回。
 
 ### EOM
 ```bash
