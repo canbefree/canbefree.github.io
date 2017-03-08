@@ -103,7 +103,7 @@ select count(0),co from (SELECT count(mid) as co FROM `table`  group by mid) as 
 
 假设存在组合索引it1c1c2(c1,c2)，查询语句select * from t1 where c1=1 and c2=2能够使用该索引。
 查询语句select * from t1 where c1=1也能够使用该索引。但是，查询语句select * from t1 where c2=2不能够使用该索引，
-因为没有组合索引的引导列，即，要想使用c2列进行查找，必需出现c1等于某值。‘
+因为没有组合索引的引导列，即，要想使用c2列进行查找，必需出现c1等于某值。
 
 ```sql
 explain(sql)
@@ -114,3 +114,7 @@ explain(sql)
 
 
 #### 关于引擎
+innodb :索引规则不一样,聚簇索引,数据库存的是主键id,没有主键按内建主键。
+
+myisam :存的是物理地址。
+
