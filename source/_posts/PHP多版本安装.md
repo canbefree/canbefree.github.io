@@ -25,7 +25,7 @@ $ /usr/local/php/bin/php -i |grep configure
 
 ./configure  --prefix=/usr/local/php54 --with-config-file-path=/usr/local/php54/etc --with-curl=/usr/local  --enable-fpm  --with-mysql --with-mysqli --enable-sockets --enable-fastcgi 
 
-./configure  --prefix=/usr/local/php7 --with-pdo-mysql=shared,mysqlnd --with-config-file-path=/usr/local/php7/etc  --with-mysqli --with-iconv-dir=/usr/local --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl=/usr/local  --enable-mbregex  --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap  --enable-zip --with-bz2
+./configure  --prefix=/usr/local/php7 --with-pdo-mysql=mysqlnd --with-config-file-path=/usr/local/php7/etc  --with-mysqli --with-iconv-dir=/usr/local --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath   --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl=/usr/local  --enable-mbregex  --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap  --enable-zip --with-bz2
 
 ```
 * added to Makefile to EXTRA_LIBS at the end "-llber" (报错 ber_scanf *
@@ -115,6 +115,7 @@ nginx.conf文件第一行设置为 www www;;
         location ~ .*\.php(\/.*)*$ {
             include fastcgi.conf;
             fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
             fastcgi_pass  127.0.0.1:9000;
         }
 

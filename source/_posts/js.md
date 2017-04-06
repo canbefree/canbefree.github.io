@@ -65,9 +65,23 @@ js文件开头记得加上这个。
 
 
 #### 关于对象
-静态方法和变量（这个不深究,感觉没什么用）
+JS一切皆对象。类即对象。类的实例化也为对象。
+函数对象：函数本来的定义
+```js
+var func = new Function()
+var func = function(){
+}
+console.log(typeof(func))
+```
+普通对象：用new生成的对象
+```js
+var obj = new Object()
+console.log(typeof(obj))
+```
+普通对象只有 __proto__属性，但是没有原型对象属性（prototype）
+每个对象都会在其内部初始化一个属性，就是__proto__，当我们访问一个对象的属性 时，如果这个对象内部不存在这个属性，那么他就会去__proto__里找这个属性，这个__proto__又会有自己的__proto__，于是就这样 一直找下去。
+原型对象的值实际上就是在函数创建的时候,创建了一个它的实例对象并赋值给它的prototype。
 
-prototype 原型方法
 ```js
 	'use strict'
 	var plugin = function(){

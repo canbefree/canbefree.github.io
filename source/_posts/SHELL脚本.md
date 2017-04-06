@@ -195,3 +195,20 @@ EOM
 sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 ```
 *sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。[link](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html)*    
+
+
+### 小试牛刀
+
+```bash
+#/bin/bash
+while true;
+do
+content=` lsof demo.sh|awk -F ' ' '{print($2)}'|grep -e "[^PID]"`
+echo "ss",$content;
+if [ ! -n "$content" ];then
+        nohup ./demo.sh &
+        echo "restart sh"
+fi
+sleep 1
+done
+```

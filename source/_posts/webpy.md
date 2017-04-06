@@ -1,8 +1,8 @@
 ---
-title: VIM常用操作
-date: 2016-10-09 04:20:20
+title: web.py
+date: 2017-03-09 04:20:20
 categories: liunx
-tags: [python,web.py]
+tags: [python,web.py]   
 ---
 
 ## 基本配置

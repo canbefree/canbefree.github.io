@@ -9,6 +9,10 @@ tags:
 ### require对象
 > 用于从外部获取一个模块接口,即所获取模块的exports对象.
 
+require将文档作为一个对象引入
+
+
+
 ### exports对象
 > 一个模块可以通过module.exports或exports将函数、变量等导出，以使其它JavaScript脚本通过require()函数引入并使用。
 

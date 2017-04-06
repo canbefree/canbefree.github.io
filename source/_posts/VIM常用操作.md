@@ -16,6 +16,14 @@ tags: [liunx,vim]
 | &lt;Crtl+z &gt;     | 挂起vim,fg返回 | 
 | daw|删掉一个单词|
 
+:set mouse =c
+
+#### tab操作
+1. tabc 关闭当前tab
+2. tabs 查看所有tab
+3. tabp 切换到上一个tab
+4. tabn 切换到下一个tab
+
 
 
 

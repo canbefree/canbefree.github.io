@@ -15,7 +15,24 @@ tag:
 ```bash
     ./auto/configure --with-cc-opt='-g -O0'
 ```
+### gdb调试
+编译代码是加上 -g选项 将源码标识编译到执行文件中。用gdb就可以直接调出源码。
+>gcc -g test.c -o test
 
+bt  查看代码函数的调用栈
+
+f   切换当前的函数栈
+
+i locals 打印当前函数栈内的变量
+
+p 查看指针的值
+
+detach-on-fork off 设置子进程同时访问 inferior 2 切换进程 threads 1 切换线程
+
+
+
+### 源码阅读
+1. main函数位于 core/nginx.c目录下。
 
 
 

@@ -42,31 +42,47 @@ enum Bits {one =1, two=2, three=5};
 
 
 #### 指针
-一定要在对指针应用接触引用运算符（*）之前，将指针初始化为一个确定的，适当的地址。
+> C++ string类型是 const char *p;
+
+string类型是一个指向常量的指针。可以改变其地址。
+
+常量指针：指向常量的一个指针 char const *p ; const char *p;
+限制通过 *p的方式修改其值。但可以修改p的值。从而修改 *p的值。
+
+
 ```cpp
-    long * fellow;
-    * fellow = 223323; //error
-    
-    long * fellow = new long;
-    * fellow = 223323; //yes
+char *msg = "hello";
+*msg = 'j';  // msg=jello
 ```
-new 分配指针地址  
-delete **只能**用来释放new分配的内存。 delete ps; 指针本身未删除,可以重新用new分配内存。
 
-数组指针：
+
+指针常量：一个为常量的指针。 char * const p
+限制通过p方式修改其值。但是可以修改*p的值。
+
+
 ```cpp
-	int a[][3] = {{1,2,3},{2,3,4}};
-	int (*p)[3] = a;  
+	const char *p = "asdfd";
+	const char *q = "1234";
+	p = q;
+	cout<<p<<endl;
 ```
-*a          =>      array
-*(a+1)      =>      array
-...         =>      array
-*(a+n)      =>      array
+>速记方法
+
+const char * p 
+p is a point to const char
+
+char * const p
+p is a const point to char
 
 
-**p 的意思是 地址p存放的地址(*p)指向的值。
 *p[3] 是指三个指针
 (*p)[3] 相当于一个二维数组
+
+
+### 宏定义
+#### define 
+
+#### typeof
 
 
 ### 重载
