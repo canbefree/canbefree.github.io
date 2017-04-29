@@ -19,6 +19,20 @@ tags:
 ```
 $ /usr/local/php/bin/php -i |grep configure
 ```
+
+#### 一些必须安装的库文件
+
+```bash
+sudo yum install libxml2-devel.x86_64
+sudo yum install openssl openssl-devel
+sudo yum install libcurl-devel
+sudo yum install libpng-devel
+sudo yum install libmcrypt-devel
+sudo yum install bzip2-devel
+sudo yum install libjpeg-devel
+sudo yum install freetype-devel.x86_64
+```
+
 #### 执行编译(负责老版本的编译参数)
 ```bash
 ./configure  --prefix=/usr/local/php53 --with-config-file-path=/usr/local/php53/etc --with-mysql --with-mysqli --with-iconv-dir=/usr/local --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-discard-path --enable-safe-mode --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl=/usr/local --without-curlwrappers --enable-mbregex --enable-fastcgi --enable-fpm --enable-force-cgi-redirect --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap  --enable-zip --with-bz2
@@ -84,10 +98,8 @@ nginx.conf文件第一行设置为 www www;;
 再执行 nginx -s reload 即可。
 
 
-
 #### 其他
 请按照正常编译
-
 
 
 ### 其他问题回顾

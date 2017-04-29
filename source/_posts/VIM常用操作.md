@@ -31,6 +31,7 @@ tags: [liunx,vim]
 
 [github搜索vim](https://github.com/search?utf8=%E2%9C%93&q=vim)
 
+[vim插件安装](https://github.com/junegunn/vim-plug)
 
 
 ### 图例
