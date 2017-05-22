@@ -8,8 +8,10 @@ tags:
     - python
     
 ---
+### 前言
+学好怎么去配置phpstorm对开发的帮助极大。
 
-### 项目同步
+### 如何设置项目同步
 
 #### 设置
 > setting>>SSH Terminal>> configure servers
@@ -33,7 +35,7 @@ You should add "zend_extension=/usr/local/php7/lib/php/extensions/no-debug-non-z
 
 ```
 
-3. 修改 php.ini配置文件
+3. 修改 php.ini配置文件,重启php-fpm进程
 ```ini
 zend_extension=/usr/local/php7/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so"
 xdebug.remote_enable=On
@@ -46,3 +48,16 @@ xdebug.remote_autostart=1
 xdebug.remote_connect_back=1
 
 ```
+
+4. 配置phpstorm 
+
+File --> setting (搜索"debug")--> DEBUG --> DBGp proxy
+设置：
+IDE KEY :PHPSTORM
+host:192.168.0.111 （虚拟机ip）
+port:9001
+
+
+### 总结
+
+积少成多
