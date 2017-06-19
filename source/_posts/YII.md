@@ -38,6 +38,30 @@ basic/                  应用根目录
 
 ### YII前端页面
 
+#### 数据库操作
+
+$db=VipModel::getDb();
+$db->createCommand
+
+
+#### 排序
+
+
+
+#### GII modules
+```
+php yii gii/module --moduleID=test --moduleClass='app\commands\modules\test\Module'
+```
+
+修改配置文件加入
+```$xslt
+    'modules' => [
+        'test' => [
+            'class' => 'app\commands\modules\test\Module',
+        ],
+    ],
+```
+    
 
 
 

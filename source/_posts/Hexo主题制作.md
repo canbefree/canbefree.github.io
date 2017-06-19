@@ -50,10 +50,10 @@ deploy:
 ### hexo迁移
 ####  部署blog工作环境
 考虑的工作环境的变换。hexo如何在别的机器上部署同样的博客环境也很重要
-1. hexo init
-2. 下载主题上传到themes目录.(主题目录我这设置了git忽略，具体主题可以fork别人的)
-3. 将 github分支hexo上的文章目录和主目录配置文件 _config.yml上传
-4. npm install hexo-deployer-git --save 安装git插件
+1. cnpm install hexo -g && hexo init
+2. 从git下载分支hexo,覆盖当前的hexo目录
+3. cnpm install
+4. npm install hexo-deployer-git --save 安装git插件  (不要使用cnpm安裝 不支持--save)
 5. hexo clean
 6. hexo g
 7. hexo d

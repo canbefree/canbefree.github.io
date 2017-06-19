@@ -8,10 +8,10 @@ categories: js
 js.. 
 
 ----
+### 前言
+### JS 基本语法
 
-### js 基本语法
-
-#### use strict 
+#### 规范
 js文件开头记得加上这个。
 ```js
  "use strict";
@@ -215,7 +215,7 @@ showMsg.call(m2) // '输入的身份证号不正确'
 
 
 #### apply 和 call方法
-apply和call基本的区别是参数不同 apply后面接数组 call后面接参数
+apply：方法：
 
 它们的作用是改变函数的调用对象
 ```js

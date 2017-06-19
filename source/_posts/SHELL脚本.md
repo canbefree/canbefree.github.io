@@ -8,9 +8,12 @@ tags:
 ---
 
 
+
 ## 基本语法
 
+
 ### 变量
+
 
 #### 语句赋值
 ```bash
@@ -18,9 +21,17 @@ for file in `ls /etc`;do
     echo $file;
 done
 ```
+#### 单引号 双引号
+类似php,单引号会屏蔽对转义字符的引号,双引号不会屏蔽转义
+例子
+```bash
+ps aux|awk -F ' ' '{print $1}'
+ps aux|awk -F ' ' "{print \$1}"
+```
+
 #### 使用变量
 ```
-skill="12312" #赋值前后不要刘空格 
+skill="12312" #赋值前后不要留空格 
 echo "I am good at ${skill}Script"
 echo $skill
 ```
@@ -57,6 +68,8 @@ echo `expr index "$string" is`  # 输出 8
 ```
 
 ##### DATE
+DATE --help
+
 date +"%Y%m%d"
 
 #### 数组
@@ -73,16 +86,6 @@ i=0 #前后不能有空格
 ```
 
 ### 参数传递
-```bash
-$ chmod +x test.sh 
-$ ./test.sh 1 2 3
-Shell 传递参数实例！
-执行的文件名：./test.sh
-第一个参数为：1
-第二个参数为：2
-第三个参数为：3
-```
-
 |参数处理 |说明|
 |：---|：----|
 |$1  | 第一个参数|
@@ -93,6 +96,8 @@ Shell 传递参数实例！
 |$@|与$*相同 但返回数组|
 |$-|显示Shell使用的当前选项，与set命令功能相同|
 |$?|显示最后命令的退出状态 或者函数的返回值|
+
+
 ### 比较符号
 | 符号    |      描述    | 
 |: ------------- |:-------------:| 
@@ -209,7 +214,7 @@ sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 
 
 ### 小试牛刀
-
+守护脚本
 ```bash
 #/bin/bash
 while true;
@@ -222,4 +227,34 @@ if [ ! -n "$content" ];then
 fi
 sleep 1
 done
+```
+时间日期遍历
+```bash 
+#!/usr/bin/env bash
+date1="$2"
+date2="$1"
+
+echo "start:{$date2} end: {$date1}"
+
+tempdate=`date -d "-0 day $date1" +%F`
+enddate=`date -d "-0 day $date2" +%F`
+tempdateSec=`date -d "-0 day $date1" +%s`
+enddateSec=`date -d "-0 day $date2" +%s`
+
+echo "##########################"
+
+echo 'tempdate:'$tempdate
+echo 'enddate:'$enddate
+
+
+for i in `seq 1 300`;do
+    if [[ $tempdateSec -lt $enddateSec ]]; then
+        break
+    fi
+    echo $tempdate
+
+    tempdate=`date -d "-$i day $date1" +%F`
+    tempdateSec=`date -d "-$i day $date1" +%s`
+done
+
 ```

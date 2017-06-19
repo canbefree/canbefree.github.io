@@ -31,6 +31,23 @@ $ sudo vim /etc/hostname
 $ sudo vim /etc/sysconfig/network-scripts/ifcfg-enp0s8
 ```
 
+### unknown filesystem type 'vboxsf'
+```
+Failed to mount folders in Linux guest. This is usually because
+the "vboxsf" file system is not available. Please verify that
+the guest additions are properly installed in the guest and
+can work properly. The command attempted was:
+
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`getent group vagrant | cut -d: -f3` data /data
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g vagrant` data /data
+
+The error output from the last command was:
+
+mount: unknown filesystem type 'vboxsf'
+
+```
+解决:
+>vagrant plugin install vagrant-vbguest
 
 
 [链接](http://www.cnblogs.com/canbefree/p/4985194.html)

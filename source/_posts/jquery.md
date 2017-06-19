@@ -79,8 +79,38 @@ jQuery.fn = jQuery.prototype
 
 ### 如何编写一个juery插件
 1. 匿名函数 避免污染环境变量
-2. 确定最终插件的使用方式 $.fn  $.extend
+2. 确定最终插件的使用方式 $.fn.extend  $.extend
 3. $.data()方法实现 模块的单例绑定
-4. 
+
+#### 什么时候用$.fn 什么时候用 $.extend
+$.fn = $.prototype
+
+所以 $.fn.extend 是拓展一个方法到实例化的对象上 而 $.extend是添加 Jquery类的静态方法。
 
 
+```js
+    $.fn.yiiGridView = function (method) {
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exist in jQuery.yiiGridView');
+            return false;
+        }
+    };
+```
+等价于
+```js
+var yiiGridView = function (method) {
+                          if (methods[method]) {
+                              return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+                          } else if (typeof method === 'object' || !method) {
+                              return methods.init.apply(this, arguments);
+                          } else {
+                              $.error('Method ' + method + ' does not exist in jQuery.yiiGridView');
+                              return false;
+                          }
+                      };
+$.fn.extend(yiiGridView);
+```
