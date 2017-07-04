@@ -49,5 +49,14 @@ mount: unknown filesystem type 'vboxsf'
 解决:
 >vagrant plugin install vagrant-vbguest
 
+### vagrant virtualbox VM inaccessible
 
-[链接](http://www.cnblogs.com/canbefree/p/4985194.html)
+```
+Bringing machine ‘default’ up with ‘virtualbox’ provider…
+Your VM has become “inaccessible.” Unfortunately, this is a critical error
+with VirtualBox that Vagrant can not cleanly recover from. Please open VirtualBox
+and clear out your inaccessible virtual machines or find a way to fix
+them.
+```
+
+C:\Users\denglj\VirtualBox VMs\vagrant_default_1411538218356_15372\vagrant_default_1411538218356_15372.vbox文件不存在。于是进入该文件的目录，发现并没有后缀为.vbox文件，而是多了一个.vbox-tmp的文件。简单地将该文件后缀中的-tmp去掉，在执行vagrant up命令，成功了。问题得到解决。

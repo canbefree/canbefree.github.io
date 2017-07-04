@@ -143,4 +143,23 @@ nginx.conf文件第一行设置为 www www;;
 
 ----
 
-[相关链接](http://www.cnblogs.com/canbefree/p/5663090.html)
+
+###　过滤微信emji表情
+    /**
+     * 过滤掉微信用户的emoji表情
+     * @param $nickname
+     * @param string $replaceStr
+     * @return mixed
+     */
+    static function replaceEmoji($nickname,$replaceStr="*")
+    {
+
+        $nicknameTmp = preg_replace_callback(
+            '/./u',
+            function (array $match) use ($replaceStr) {
+                return strlen($match[0]) >= 4 ? $replaceStr : $match[0];
+            },
+            $nickname);
+        return $nicknameTmp;
+
+    }

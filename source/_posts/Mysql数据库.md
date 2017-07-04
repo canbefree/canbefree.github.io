@@ -93,6 +93,11 @@ SELECT count(case when mid <1000 then 1 else null end)  FROM `landlord_fan`
 select count(0),co from (SELECT count(mid) as co FROM `table`  group by mid) as A group by co
 ```
 
+
+### FIND_IN_SET
+
+ 查找字符是否在字符串中
+
 ### 数据库优化
 
 优化索引
@@ -117,4 +122,5 @@ explain(sql)
 innodb :索引规则不一样,聚簇索引,数据库存的是主键id,没有主键按内建主键。
 
 myisam :存的是物理地址。
+
 

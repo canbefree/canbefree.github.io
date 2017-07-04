@@ -62,6 +62,37 @@ php yii gii/module --moduleID=test --moduleClass='app\commands\modules\test\Modu
     ],
 ```
     
+### YII 单元测试
+
+#### 安装
+>composer require "fxp/composer-asset-plugin:*"
+
+>composer require "codeception/codeception=*"
+
+>composer require "codeception/specify=*"
+
+>composer require "codeception/verify=*"
+
+
+#### 执行命令
+>切换到YII根目录下
+
+> 执行 `ln -s  vendor/bin/codecept codecept`
+
+> 执行 `codecept build`
+
+> 生成一个测试用例 `codecept generate:test unit models\DemoTest `
+
+> 执行测试 `codecept run`
+
+
+
+
+
+#### 单元测试断言
+|命令|意义|
+|:--|:--|
+|assertGreaterThanOrEqual|大于或等于|
 
 
 
