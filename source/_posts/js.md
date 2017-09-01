@@ -11,6 +11,19 @@ js..
 ### 前言
 ### JS 基本语法
 
+#### ES6语法
+
+
+```
+var {mix} = {mix:'123'};
+
+var _require = {mix:'123'};
+var mix = _require.mix
+
+
+```
+
+
 #### 规范
 js文件开头记得加上这个。
 ```js

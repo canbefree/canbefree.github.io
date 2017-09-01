@@ -72,3 +72,10 @@ cscope -Rqb
 ### 图例
 
 {% asset_link vim.png  %}
+
+
+### 复制粘贴
+
+shift + insert 复制系统粘贴
+set clipboard=unamedplusset clipboard=unamedplus
+

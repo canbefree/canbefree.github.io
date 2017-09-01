@@ -43,6 +43,48 @@ basic/                  应用根目录
 $db=VipModel::getDb();
 $db->createCommand
 
+```
+$rows = (new \yii\db\Query())  
+    ->select(['dyn_id', 'dyn_name'])  
+    ->from('zs_dynasty')  
+    ->where(['between','dyn_id', 1,30])  
+    ->limit(10)  
+    ->all();  
+
+    
+```
+
+##### 清除表结构缓存
+>方法一:清空表结构缓存的方法  
+   
+//flush all the schema cache  
+Yii::$app->db->schema->refresh();  
+   
+//clear the particular table schema cache  
+Yii::$app->db->schema->refreshTableSchema($tableName);  
+   
+   
+>方法二:清空所有的缓存--不仅仅是mysql表结构  
+Yii::$app->cache->flush();  
+
+#### 添加自定义rules
+```
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            ['password_retry','needSame'],
+        ];
+    }
+    
+    public function passwordRetry($attribute,$params){
+        if($this->password !=$this->password_retry){
+            $this->addError($attribute,"两次输入密码不一致");
+        }
+    }
+```
 
 #### 排序
 
@@ -87,8 +129,12 @@ php yii gii/module --moduleID=test --moduleClass='app\commands\modules\test\Modu
 
 
 
+#### ajax提交安全
+```
+   if (\Yii::$app->request->isAjax){
 
-
+   }
+```
 #### 单元测试断言
 |命令|意义|
 |:--|:--|

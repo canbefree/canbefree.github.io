@@ -62,9 +62,9 @@ update
 
 ### mysql基本语法
 #### 聚合
-取出用户最近的添加时间以及总记录数
+取出用户最近的添加时间以及总记录数  注意 group by 总是取的第一条记录。
 ```sql
-select max(time)from table group by user
+select max(time)from table group by user  
 ```
 #### if
 取出大于当前日期的记录数

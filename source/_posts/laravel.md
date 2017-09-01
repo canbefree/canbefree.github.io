@@ -14,6 +14,12 @@ tags:
 > 搭建的时候 一定要把域名的根目录指向 *public*.因为laravel中是相对*public*定位文件位置。
 > php artisan clear-compiled //不生成编译文件
 
+### 安装
+#### npm install
+```
+    cnpm install --no-bin-links #不要软连接
+```
+
 ### 如何正确使用中间件
 #### 创建中间件
 ```bash
@@ -251,35 +257,25 @@ MAIL_FROM_NAME=neoxie //发送人姓名
 
 ### Elixir 
 
-> 注意,首先前端不是我的工作重点（这点一定要牢记）,你知道知道怎么利用 sass 定制自己的 bootstrap 就可以了。
-#### gulp
-1.npm install
-2.npm install gulp
-3.yum install libnotify #Error in plugin 'gulp-notify' not found: notify-send
+> 注意,首先前端不是我的工作重点（这点一定要牢记）
 
-#### module 不存在
-直接npm安装 缺啥安装啥。
+laravel-mix [html项目](https://github.com/canbefree/html_project)
+>这个laravel组件集成了webpack以及压缩合并js,css很多方法。值得学习和在今后的项目中引用。
 
-#### 基本语法
-```js
-elixir(function(mix) {
-    mix.sass('app.scss'); //编译scss
-    mix.browserify ('app.js')//编译 js
-    mix.styles([     //合并css文件
-        'test1.css',
-        'test2.css'
-    ]);
-    mix.scripts([     //合并js文件
-        'test1.js',
-        'test2.js'
-    ]);
-    
-    mix.stylesIn('public/css'); //合并目录下的css文件
-    mix.scriptsIn('public/js'); //合并目录下的js文件
-    
-    mix.version("css/all.css"); //哈希化文件名 elixir()可以正确加载到该文件
-});
+>构建单项目文件时，不希望引入的node_modules的模块经常性重新打包怎么办？
+
+用extract(['vue'])
 ```
+mix.js('resources/assets/js/app.js', 'public/js')
+   .extract(['vue'])
+```
+```
+<!-- 保证文件依次引用 -->
+<script src="/js/manifest.js"></script>
+<script src="/js/vendor.js"></script>
+<script src="/js/app.js"></script>
+```
+
 ### blade模板
 #### extents
 相当于 require

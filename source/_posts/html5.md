@@ -22,4 +22,25 @@ HTML5新单位标准，与px其他单位不同的，该单位长度是可以随�
 ### web socket
 h5标准出台的新特性
 
+### Emmet
+
+html>head>header^+body>div>ul>li.item$${header}*3
+
+```
+<html>
+<head>
+    <header></header>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="item01">header</li>
+            <li class="item02">header</li>
+            <li class="item03">header</li>
+        </ul>
+    </div>
+</body>
+</html>
+```
+
 

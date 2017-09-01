@@ -20,15 +20,22 @@ require将文档作为一个对象引入
 所有的exports收集到的属性和方法，都赋值给了Module.exports。当然，这有个前提，就是Module.exports本身不具备任何属性和方法。如果，Module.exports已经具备一些属性和方法，那么exports收集来的信息将被忽略。
 
 ```
-module.exports = 'ROCK IT!';
+# 一开始会node.js会这么赋值 module.exports=exports＝{};
+
+module.exports = 'ROCK IT!'; //最后返回的时 module.exports 所以下面的 exports.name改动无效。会报错
 exports.name = function() {
     console.log('My name is Lemmy Kilmister');
 };
 ```
+
 ```
 var rocker = require('./rocker.js');
 rocker.name(); // TypeError: Object ROCK IT! has no method 'name'
 ```
+
+其实module.exports才是模块公开的接口，每个模块都会自动创建一个module对象，对象有一个modules的属性，初始值是个空对象{}，module的公开接口就是这个属性——module.exports。
+
+
 #### 什么时候用module.exports 什么时候用 exports
 > 如果你想你的模块是一个特定的类型就用Module.exports。如果你想的模块是一个典型的“实例化对象”就用exports。
 
