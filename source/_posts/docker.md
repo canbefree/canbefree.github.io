@@ -36,34 +36,16 @@ sudo chkconfig docker on //开机自启
 ```
 
 
-### 如何配置环境
-#### 配置 nginx
+### 如何配置环境(LNMP)
 
-php-fpm 配置的路径需要修改
-php-fpm 配置的默认监听端口要从 172.0.0.1:9000改成 9000
+#### 准备Dockerfile文件 并build
 
+nginx 
 ```
 FROM nginx
 ```
-docker build -t php-fpm-7 .
 
-```
-PWD="/data/nginx" &&
-docker run -p 80:80 --name nginx  --privileged=true \
--v /www:/www \
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
--v $PWD/conf/conf.d:/etc/nginx/conf.d \
--v $PWD/logs:/wwwlogs \
--d nginx 
-
-```
-
-
-#### 配置 php-fpm
-这个必须设置成：
-php-fpm.conf中daemonize = no
-否则容器无法启动 Exited
-
+php-fpm
 ```
 FROM php:7.1-fpm
 
@@ -81,21 +63,103 @@ RUN \
     && docker-php-ext-install -j$(nproc) iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
-          
+
+COPY swoole/ swoole/
+
+RUN cd swoole \
+    && phpize \
+    && ./configure \
+    && make \
+    && make install
+
 RUN pecl install redis-3.1.3 \
     && pecl install xdebug-2.5.5 \
-    && docker-php-ext-enable redis xdebug
+    && docker-php-ext-enable redis xdebug swoole
 
 ```
 
+mariadb
 ```
+FROM FROM mariadb:10.3
+```
+
+
+### 创建目录文件
+mkdir /www
+docker run -it nginx /bin/bash
+mkdir -p /data/nginx
+mkdir -p /data/nginx/logs
+docker cp nginx:/etc/nginx conf/
+mv (上步创建的nginx文件)  /date/nginx
+
+
+mkdir -p /data/php-fpm 
+docker run --name php-fpm -d 7.1-fpm /bin/bash
+docker cp php-fpm:/usr/local/etc/ etc/
+mv (上步创建的php-fpm文件) /date/php-fpm
+
+mkdir -p /data/mariadb
+docker run --name mariadb -d mariadb /bin/bash
+docker cp mariadb:/etc/mysql conf
+
+### 修改配置文件
+php-fpm 配置的默认监听端口要从 172.0.0.1:9000改成 9000
+
+php-fpm.conf中daemonize = no
+否则容器无法启动 Exited
+
+配置命令行
+sudo tee /etc/docker/daemon.json <<-'EOF'
+alias php='docker exec -it php-fpm php'
+alias mysql='docker mariadb mysql'
+EOF
+
+
+### 启动shell脚本
+```
+docker rm -f $(docker ps -a -q)
+
 P=/data/php-fpm && \
-docker run -p 9000:9000 --name  php-fpm  --privileged=true \
+docker run --name  php-fpm  --privileged=true \
 -v /www:/www \
 -v $P/etc/php-fpm.conf:/usr/local/etc/php-fpm.conf \
 -v $P/etc/php-fpm.d/:/usr/local/etc/php-fpm.d/ \
 -v $P/logs:/phplogs \
 -d 7.1-fpm
+
+
+
+P=/data/nginx && \
+docker run -p 80:80 --name nginx  --privileged=true \
+--link php-fpm \
+-v /www:/www \
+-v $P/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v $P/conf/conf.d:/etc/nginx/conf.d \
+-v $P/logs:/wwwlogs \
+-d nginx
+
+P=/data/mariadb && \
+docker run -p 3306:3306 --name mariadb --privileged=true \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-v $P/conf:/etc/mysql \
+-d mariadb
+
+```
+
+
+##### 网速慢可以用[阿里云](https://cr.console.aliyun.com/?spm=5176.1971733.2.28.60785837Gd4YZQ#/accelerator)加速 
+
+通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
+```
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://15vkd47w.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
 ```
 
 #### 获取容器ip
@@ -110,7 +174,6 @@ docker rmi $(docker images -q -f "dangling=true")
 ##### 容器删除
 docker rm -f $(docker ps -a -q)
 docker ps -a |grep Exit |awk '{print $1}' |xargs docker rm
-
 
 
 ### 本地镜像
