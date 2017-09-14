@@ -61,6 +61,7 @@ RUN \
     && apt-get autoremove \
     && apt-get clean \
     && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-install -j$(nproc) pdo pdo-mysql \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 
@@ -111,7 +112,8 @@ php-fpm.conf中daemonize = no
 配置命令行
 sudo tee /etc/docker/daemon.json <<-'EOF'
 alias php='docker exec -it php-fpm php'
-alias mysql='docker mariadb mysql'
+alias mysql='docker exec -it mariadb mysql'
+alias nginx='docker exec -it nginx service nginx'
 EOF
 
 
@@ -127,8 +129,6 @@ docker run --name  php-fpm  --privileged=true \
 -v $P/logs:/phplogs \
 -d 7.1-fpm
 
-
-
 P=/data/nginx && \
 docker run -p 80:80 --name nginx  --privileged=true \
 --link php-fpm \
@@ -138,6 +138,7 @@ docker run -p 80:80 --name nginx  --privileged=true \
 -v $P/logs:/wwwlogs \
 -d nginx
 
+#mysql存了数据 建议不要和php-fpm以及nginx放一起。
 P=/data/mariadb && \
 docker run -p 3306:3306 --name mariadb --privileged=true \
 -e MYSQL_ROOT_PASSWORD=123456 \
@@ -172,7 +173,7 @@ docker inspect b4 |grep IPAddress
 docker rmi $(docker images -q -f "dangling=true")   
 
 ##### 容器删除
-docker rm -f $(docker ps -a -q)
+    
 docker ps -a |grep Exit |awk '{print $1}' |xargs docker rm
 
 

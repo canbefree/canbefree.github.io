@@ -1,15 +1,21 @@
----
-title: 单元测试
-date: 2016-10-25 05:16:08
-categories: unittest
-tags:
-    - phpunit
----
-
-### 前言
-
-### 内容
-1. 依赖测试(@depends)
-2. 数据供给器(@dataProvider)
-3. 对输出进行测试
-4. 
+mariadb:
+        image: mariadb
+        ports:
+        - "3306:3306"
+        environment:
+        - MYSQL_ROOT_PASSWORD=123456
+php-fpm:
+        volumes:
+        - /data/php-fpm/etc/php-fpm.conf:/usr/local/etc/php-fpm.conf
+        - /data/php-fpm/etc/php-fpm.d/:/usr/local/etc/php-fpm.d
+        image: php-fpm
+nginx:
+        volumes:
+        - /data/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+        - /data/nginx/conf.d:/etc/nginx/conf.d
+        - /www:/www
+        links:
+        - php-fpm 
+        image: nginx
+redis:   
+        image: redis
