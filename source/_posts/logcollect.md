@@ -23,6 +23,7 @@ tags:
 5. [kibana](https://www.elastic.co/downloads/kibana)
 6. [filebeat](https://www.elastic.co/downloads/beats/filebeat)
 
+
 ### logstash
 #### 格式化日志
 [grok基础](http://udn.yyuap.com/doc/logstash-best-practice-cn/filter/grok.html)
@@ -62,3 +63,11 @@ filter {
 
 [测试正则](http://grokdebug.herokuapp.com/)
 ####  
+
+
+```
+    wget https://artifacts.elastic.co/downloads/logstash/logstash-5.6.3.zip
+    wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.3.zip
+    wget https://artifacts.elastic.co/downloads/kibana/kibana-5.6.3-linux-x86_64.tar.gz
+    wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.3-linux-x86_64.tar.gz
+```
