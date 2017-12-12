@@ -29,3 +29,12 @@ composer config repo.packagist composer https://packagist.phpcomposer.com  #当�
 #### PSR-0 PSR4
 PSR-4和PSR-0最大的区别是对下划线（underscore)的定义不同。PSR-4中，在类名中使用下划线没有任何特殊含义。而PSR-0则规定类名中的下划线_会被转化成目录分隔符。 
 
+```
+    "autoload": {
+        "psr-4": {
+            "Command\\":"command/"
+        }
+    }
+
+```
+更新composer.json一定要执行 composer update 

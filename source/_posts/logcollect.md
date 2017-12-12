@@ -24,6 +24,7 @@ tags:
 6. [filebeat](https://www.elastic.co/downloads/beats/filebeat)
 
 
+
 ### logstash
 #### 格式化日志
 [grok基础](http://udn.yyuap.com/doc/logstash-best-practice-cn/filter/grok.html)
@@ -55,14 +56,37 @@ filter {
 }
 ```
 
-> CRON_ACTION [A-Z ]+
+docker-compose run --rm  -v ./logstash/ --name=logstash logstash
+
+
+> CRON_ACTION [A-Z]+
 > CRONLOG %{SYSLOGBASE} \(%{USER:user}\) %{CRON_ACTION:action} \(%{DATA:message}\)
 
 如何解释上面的两句话？
-%{CRON_ACTION:action} 其实就是 %([A-Z ]+:action),也就是 (?<action>[A-Z]+)的意思。
+%{CRON_ACTION:action} 其实就是 %([A-Z]+:action),也就是 (?<action>[A-Z]+)的意思。
 
 [测试正则](http://grokdebug.herokuapp.com/)
-####  
+
+ruby grokdebug.rb -m '10.1.1.1' -p '%{IP:client}' 
+
+
+
+
+
+### elasticsearch
+#### 宿主机调整 不然docker会报错
+sysctl -w vm.max_map_count=262144
+
+#### 状态查询
+
+>查询集群节点数以及健康状态
+http://120.78.62.77:9200/_cat/health?v
+
+>节点设置
+
+curl http://120.78.62.77:9200/_cluster/health -H "Content-Type: application/json" -s | python -m json.tool
+
+http://120.78.62.77:9200/_cluster/settings
 
 
 ```
@@ -71,3 +95,15 @@ filter {
     wget https://artifacts.elastic.co/downloads/kibana/kibana-5.6.3-linux-x86_64.tar.gz
     wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.3-linux-x86_64.tar.gz
 ```
+
+
+#### 安装 x-pack
+
+./bin/elasticsearch-plugin install -b x-pack
+
+
+
+原有100人手上有100收藏品。 100人之间互相交易。 找出最受欢迎的收藏品（交易次数最多的收藏品）
+
+
+收藏品 --

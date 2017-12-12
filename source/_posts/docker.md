@@ -7,7 +7,8 @@ tags:
 ### 前言
 镜像，容器，仓库
 
-### 内容
+### 内容|
+
 
 #### 基本命令
 
@@ -16,7 +17,7 @@ tags:
 |service server start|开启docker服务|
 |chkconfig docker on  |加入开机启动|
 |run|运行一个实例|
-|docker ps -a |查看运行的所有实例|
+|docker ps -a |查看运行的所有实例
  
 绑定端口
 ``` 
