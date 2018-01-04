@@ -7,23 +7,25 @@ tags:
     - python
 ---
 
+
+
+
 ### 代码规范
-1. 命名规范
+
+#### 异常控制
+> 程序的未知错误应该要及时抛出及时处理（生产环境异常日志必须要记录下来 并转型对应的 502 404 页面）
+> 
+#### 代码可扩展
+> 业务逻辑 以及 布局 等需要做到分层处理。以满足业务需求。
+
+
+#### 代码安全
+> 尽量使用原有的orm写查询。避免sql注入。可以通过过类型转换处理post请求参数。以及合理利用 addslashes [magic_quotes_gpc = On], mysqli_escape_string 等函数处理(数据库设置为 utf-8)。
+
+#### 命名规范
 > helloWorld(实例化对象,静态变量) hello_world(变量) HelloWorld(类) _helloworld(私有变量) HELLOWORLD(常量) 
 
-2. 函数。
-
->返回的值避免类型时MIX类型
-```
-  //打印一段html
-  function outPutHtml(){
-    if(true) return "<div>HELLO WORLD</div>";
-    if(false) return "";
-  }
-```
->不执行的代码段直接抛出异常 非必要少用日志
-
-3. 日志信息独立成行,异常的等
+#### 注释齐全
  
 
 ### 数据库规范
@@ -35,7 +37,7 @@ tags:
 
 ### 设计模式
 
-### 单例模式的一些写法
+#### 单例模式的一些写法
 
 ```
     $object = Example::factory()->func();

@@ -38,12 +38,18 @@ VIM编辑神器
 |:! command|执行命令|
 |：r !command |执行命令 结果粘贴到当前vim行|
 
+#### vim 查找
+
+:vim /查找内容/% |copen
+:vim /查找内容/\*|copen
+:vim /查找内容/\*\*|copen 递归
+
 
 #### tab操作
 1. :tabc 关闭当前tab
 2. :tabs 查看所有tab
 3. :tabp | gT 切换到上一个tab
-4. :tabn | gT 切换到下一个tab
+4. :tabn | gt 切换到下一个tab
 
 #### split vsplit
 split 接文件可以打开其他文件
@@ -83,9 +89,24 @@ sudo yum install ctags
 <c-o|t> 跳转回去
 gd    查找当前关键字
 
+####  tagbar
+
+,tt 打开当前的tag列表
+
 #### nerdtree
 
 shift-R 刷新列表
+
+#### EasyMotion
+> 快速跳转
+
+|命令|解释|
+|--|--|
+|,,w|当前光标后所有的word|
+|,,b|当前光标前所有的word|
+|,,j|当前光标后所有的行|
+|,,k|当前光标前所有的行|
+
 
 #### neocomplete
 tab 选择
