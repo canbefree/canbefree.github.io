@@ -21,6 +21,7 @@ tags:
 ```
 
 ### 如何正确使用中间件
+
 #### 创建中间件
 ```bash
 php artisan make:middleware Bysso/AuthMiddleware
@@ -38,65 +39,44 @@ php artisan make:middleware Bysso/AuthMiddleware
 
 为什么要用服务提供者？
 1.我建立了一个服务，当应用需要调用这个服务的时候，就引用它。后来业务增长，代码到处都用到了这个服务。
-有一天这个服务废弃了,我需要遍历所有的代码去修改它。岂不是很不方便。（代码迁移,修改类名,基础架构修改比如DB存储和分布式存储）
+有一天这个服务废弃了,我需要遍历所有的代码去修改它。岂不是很不方便。（代码迁移,修改类名,基础架构修改
+比如DB存储和分布式存储).使用服务提供者能轻易切换其实现。
+2.便于编写测试用例
 
-
->创建一个服务提供者的总结：
-1.先创建一个服务类的接口，规范，
-2.创建服务类，
-3.然后创建服务提供者
-4.注册服务提供者，最后调用服务
-
-你可以完全不使用Service Provider
+#### 服务容器
+##### 什么是依赖注入
+>类的依赖项通过构造函数，或者某些情况下通过「setter」方法「注入」到类中
 ```
-$app->make('APP\Model\Example');
-```
-
-#### 创建Service类
-service类提供方法
-
-#### 创建provider
-provider 注册服务
-
-```
-class AuthServiceProvider extends ServiceProvider
-{    
-    public function register()
-     {
-         $this->app->singleton('AjaxResponseService', function () {
-             return new \App\Services\AjaxResponse();
-         });
-     }
+class UserController extends Controller{ // $users 内容的修改 不会影响到 UserController 下层依赖上层，用的时候传入，而不是针对下层去修改
+    ......
+    public function __construct(UserRepository $users)
+    {
+        $this->users = $users;
+    }
+    .....
 }
-```
-
-```php
-<?php #file config/app.php
-#.....
-    'providers' => [
-            /**
-         * 自己创建的facade
-         */
-        \App\Providers\TestServiceProvider::class,
-
-    ],
-#.....
-```
-
-> 实现注入依赖。用对象名就可以调用service方法。方便后期维护，service的名称和内容都可以修改。只要provider 注册时修改到对应的类。
 
 ```
-AjaxResponseService $service;
-$service->callMe(""); 
-```
+##### 服务绑定
+>简单绑定
+>绑定一个单例
+>绑定实例
+>绑定初始数据
+
+
+##### 解析
+> make 方法
+> resolve 方法
 
 
 
-#### FACADE
+
+##### FACADE
 1. laravel5创建一个facade，可以将某个service注册个门面，这样，使用的时候就不需要麻烦地use 了
 2. facade调用service方法都通过静态方法调用。
 3. 使用facade前提必须注册provider,以及配置他的别名
 
+aliases的原理参考 class_alias  [RegisterFacades]->bootstrap()
 ```php
 <?php #file config/app.php
 #.....
@@ -252,7 +232,14 @@ MAIL_FROM_NAME=neoxie //发送人姓名
         });
 ```
 
+### DB
+```
+User::create(['id'=>1,'name'=>'小明']);
+```
 
+### Model
+
+php artisan make:request StoreArticleRequest
 
 
 ### Elixir 

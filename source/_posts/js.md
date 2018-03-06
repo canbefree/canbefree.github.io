@@ -326,4 +326,7 @@ PHP RPC就不多介绍了。跨语言，跨域的一种全新协议。轻量。
 1. 在 子页面 中通过 setInterval 方法设置定时器， 监听 location.href 的变化即可获得上面的 data 信息
 2. 然后 子页面 就能根据这个 data 信息进行相应的逻辑处理。
 
+### 实用插件
+#### wangEditor 富文本编辑器
+[http://www.wangeditor.com/](http://www.wangeditor.com/)
 

@@ -48,8 +48,8 @@ VIM编辑神器
 #### tab操作
 1. :tabc 关闭当前tab
 2. :tabs 查看所有tab
-3. :tabp | gT 切换到上一个tab
-4. :tabn | gt 切换到下一个tab
+3. :tabp | gT | H 切换到上一个tab
+4. :tabn | gt | L 切换到下一个tab
 
 #### split vsplit
 split 接文件可以打开其他文件
@@ -88,6 +88,9 @@ sudo yum install ctags
 <c-]> 跳转到定义
 <c-o|t> 跳转回去
 gd    查找当前关键字
+
+忽略 node_modules 
+> ctags -R --exclude=node_modules
 
 ####  tagbar
 
