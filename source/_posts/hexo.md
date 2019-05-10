@@ -23,7 +23,7 @@ tags:
 > `$ npm install hexo -g`  
 > `$ hexo init`  
 > `$ npm install`
-> `$ hexo s -g`   查看效果
+> `$ hexo s -g -p 4000`   查看效果 -p指定端口
 
 #### 修改配置文件 **_config.yml**
 ```yml
