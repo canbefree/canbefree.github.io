@@ -6,6 +6,8 @@ tags:
     - vagrant
 ---
 
+# 推荐使用docker 
+
 ### centos7.0 关闭防火墙
 
 ```

@@ -12,6 +12,8 @@ tags:
 
 # 基础使用
 
+- 文档基于webpack4
+
 ## 目录结构
 
 ```
@@ -60,77 +62,6 @@ package.json
     "webpack-cli": "^3.3.2"
   }
 }
-```
-
-webpack.config.js
-```js
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
-const MinCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path');
-
-module.exports = {
-    entry: {
-        'main': path.resolve(__dirname, 'resources/assets/js/main.js'),
-        'vendor': path.resolve(__dirname, 'resources/assets/js/vendor.js'),
-        'ext': path.resolve(__dirname, 'resources/assets/js/ext.js'),
-    },
-    mode: "development",
-    output: {
-        path: path.resolve(__dirname, '../../dist/demo'),
-        filename: '[name].[contenthash].js',
-        chunkFilename: 'js/[name].[chunkhash].js'
-    },
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, 'resources/assets/js'),
-            '#': path.resolve(__dirname, 'resources/assets/sass'),
-            'vue$': 'vue/dist/vue.common.js'
-        }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-
-                    plugins: ['@babel/plugin-syntax-dynamic-import']
-                }
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.sass$/,
-                // use: ['style-loader', 'css-loader', 'sass-loader']
-                // use:ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-                use: [MinCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-            }
-        ]
-    },
-    plugins: [
-        new MinCssExtractPlugin({
-            filename: 'css/[name].[hash].css'
-        }),
-
-        new HtmlWebpackPlugin({
-            filename: 'index.html',    //生成的html存放路径，相对于 path
-            chunckTemplate: 'js',
-            template: 'view/index.html',    //html模板路径
-            inject: true,    //允许插件修改哪些内容，true/'head'/'body'/false,
-            chunks: ['main'],//加载指定模块中的文件，否则页面会加载所有文件
-            hash: false,    //为静态资源生成hash值
-            minify: {    //压缩HTML文件
-                removeComments: true,    //移除HTML中的注释
-                collapseWhitespace: true//删除空白符与换行符
-            }
-        }),
-    ]
-}
-
 ```
 
 ## 初始化
@@ -209,7 +140,7 @@ npm install  mini-css-extract-plugin --save-dev (官方推荐使用这个来提�
 > 为什么不使用 [hash] 或者 [chunkhash] 而要使用[contenthash]的[原因](http://www.cnblogs.com/ihardcoder/p/5623411.html),
 > 可以这样简单理解：hash是针对所有文件的指纹，chunkhash是针对模块指纹,contenthash是针对输出后的文件内容的指纹。
 
-### 问题三
+## 问题三
  如何使用懒加载?
 
 >什么是懒加载？
@@ -236,7 +167,7 @@ setTimeout(function () {
 }, 5000)
 ```
 
-### 问题4
+## 问题四
 如何根据直接生成html文件
 
 ```
@@ -257,4 +188,43 @@ setTimeout(function () {
             }
         }),
         '''
+```
+## 问题五
+
+回到问题一，多个入口如何提取第三方库：
+
+```js
+
+    ...
+    entry: {
+        // 'vendor': path.resolve(__dirname, 'resources/assets/js/vendor.js'),
+        'vendor': ['vue','bootstrap'],
+        'main': path.resolve(__dirname, 'resources/assets/js/main.js'),
+    },
+    ...
+    ...
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: "vendor",
+                    chunks: "initial",
+                    minChunks: 1
+                }
+            }
+        },
+    },
+```
+
+>这样子 main.js 就不会包含 vue,bootstrap源码src
+
+
+## 问题六
+
+如何进行代码压缩？
+
+```js
+    optimization: {
+        minimize:true
+    },
 ```
