@@ -207,4 +207,38 @@ hexo.call(cmd, args)
 
 #### 站内搜索
 
-http://blog.niices.com/Hexo-Next-Algolia-Search/
+![参考](https://www.jianshu.com/p/5b62c01c4dfa)
+
+1. 安装插件
+
+```shell
+  npm install hexo-generator-search
+  npm install hexo-generator-searchdb
+```
+
+2. 修改配置
+
+在你的hexo目录下的_config.yml中增加如下配置：
+
+```yml
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+```
+
+3. 配置next中的搜索入口 (themes/next/_config.yml)
+
+``` yml
+# Local search
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+
+
+```
