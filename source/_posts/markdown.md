@@ -6,29 +6,32 @@ categories: blog
 
 ---
 
-
 ### 前言
+
 为了规范博客的内容，具有更好的可读性。 -----格式要求
 提供Markdown基本语法查询  ----  MarkDown基本语义。
 
 ### 格式要求
+
 1. 基本的博客文章要满足总分总的布局格式（软八股） 前言---- 内容 --- 总结 。
 2. 文章不许留空,文章没准备好，可以正文填充"待完善"。
 3. ">" 层次不清楚的可以用这个符号来提示缩进
 
-
 ### MarkDown基本语义
 
 #### 视频
+
 >> 视频直观。但是不建议滥用。blog的空间就500M,能用图片就用图片代替。
 
-*直观效果:*   
+*直观效果:*  
+
 <video id="video" controls="" preload="none">
       <source id="mp4" src="{% asset_path 视频示例.mp4  %}" type="video/mp4"/>
       <p>Your user agent does not support the HTML5 Video element.</p>
 </video>
 
 *演示代码:*
+
 ```html
 <video id="video" controls="" preload="none">
       <source id="mp4" src="{% asset_path 视频示例.mp4  %}" type="video/mp4"/>
@@ -37,6 +40,7 @@ categories: blog
 ```
 
 #### 图片,链接
+
 *直观效果:*
 这是一个图片![百度](http://www.baidu.com/img/2016_10_09logo_61d59f1e74db0be41ffe1d31fb8edef3.png)
 这是一个图片的行内链接[![hexo-image]](http://www.baidu.com)
@@ -45,7 +49,8 @@ categories: blog
 这是一个文字的引用链接[百度][baidu]
 
 *演示代码:*
-```
+
+```text
 这是一个图片![百度](http://www.baidu.com/img/2016_10_09logo_61d59f1e74db0be41ffe1d31fb8edef3.png)
 这是一个图片的行内链接[![hexo-image]](http://www.baidu.com)
 这是一个引用的图片链接[![hexo-image]][hexo-url]
@@ -56,20 +61,25 @@ categories: blog
 #### HEXO图片设置（本blog）
 
 >修改配置文件
+
 ```ini
 _config.yml
 post_asset_folder: true
 ```
+
 >引入插件(一旦引入插件 公共图片文件引入方式将不可用)
+
 ```
 npm install https://github.com/CodeFalling/hexo-asset-image --save
 ```
+
 >图片插入
 
-添加图片到一下路径  
-\source\_posts\Swig模板\swig.PNG
+添加图片到以下路径  
+\source\_posts\swig\swig.PNG
 
 引用方式
+对于 swig.md文件 使用 (对于文件名和目录名必须一致)
 ```
 ![swig](/swig.PNG)
 {% asset_path swig.PNG  %}
