@@ -73,15 +73,8 @@ deploy:
   #repo: https://git.coding.net/canbefree/canbefree.git
   branch: master
 
-algolia:
-  appId: 'I9G5HWEWTV'
-  apiKey: 'f209850275aff4dc571e38e460ea0ac0'
-  adminApiKey: '0154737d535b9ad6a19c585dc47e6a17'
-  applicationID: 'I9G5HWEWTV'
-  indexName: 'test'
-  chunkSize: 5000
-  fields:
-    - title
-    - slug
-    - path
-    - content:strip
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
