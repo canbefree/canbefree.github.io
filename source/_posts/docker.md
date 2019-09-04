@@ -1,7 +1,8 @@
 ---
 title: Docker
-date: 2017-06-19 16:28:53
+date: 2018-06-19 16:28:53
 tags:
+
 ---
 
 # 环境搭建
@@ -16,6 +17,7 @@ tags:
 
 ## 环境搭建
 [docker-compose环境](git@github.com:canbefree/dev.git)
+
 [docker-php55](git@github.com:canbefree/docker-php55.git)
 
 - 配置 .env ( 工作路径,以及数据库密码等)
@@ -29,7 +31,7 @@ tags:
     git push origin --tags
 ```
 
-## DOCKERFILE[配置详解](https://docs.docker.com/engine/reference/builder/#maintainer)
+### DOCKERFILE[配置详解](https://docs.docker.com/engine/reference/builder/#maintainer)
 
 - volumns
 - [ADD](https://docs.docker.com/engine/reference/builder/#add) 和 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 区别
@@ -37,7 +39,7 @@ tags:
         add 复制url,copy更简单
 - [CMD](https://docs.docker.com/engine/reference/builder/#cmd)
 
-## COMPOSE [配置详解](https://docs.docker.com/engine/reference/builder/#maintainer)
+### COMPOSE [配置详解](https://docs.docker.com/engine/reference/builder/#maintainer)
 - volumns
   
         数据需要迁移，就需要volumns了，一般我都用来数据库的迁移
@@ -56,21 +58,24 @@ tags:
             dockerfile: Dockerfile7
 ```
 
-## 问题
+### 问题
 - 添加volumn配置时 无法使用 `docker-compose restart [container_name]` 生效,请stop后在启动
 - 
+## 容器化开发环境尝试
+如果做到真正的容器化开发，下面开始一系列的尝试
+
+### go容器化尝试
+- 卸载本地go
+- 安装vscode插件 - Remote development
+- 启动插件 -  [阿里云构建镜像](https://github.com/canbefree/docker-vscode-remote-development) 
 
 
 
+## 尾注
+  ### 目前存在一些头痛的问题
 
-# 尾注
-  ## 目前存在一些头痛的问题
-
-- 如何在宿主机执行终端命令(主要是被执行文件路径宿主机和容器里面挂载的位置不一致,导致无法执行)，
 - 生产环境如何实现不停机动态挂载目录(研究下k8s)
 - 生产环境日志路径不在开发目录下，导致mkdir权限不足，现在php-fpm使用的是root权限，有安全隐患
-
-
 
 
 框架或者语言时刻都在更新，个人开发视野也很容易产生局限，如果有更好的建议或者其他问题探讨都可以发送邮箱：452198757@qq.com

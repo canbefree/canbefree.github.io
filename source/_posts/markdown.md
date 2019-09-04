@@ -69,7 +69,7 @@ post_asset_folder: true
 
 >引入插件(一旦引入插件 公共图片文件引入方式将不可用)
 
-```
+```bash
 npm install https://github.com/CodeFalling/hexo-asset-image --save
 ```
 
@@ -80,15 +80,14 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 
 引用方式
 对于 swig.md文件 使用 (对于文件名和目录名必须一致)
-```
+
+```markdown
 ![swig](/swig.PNG)
 {% asset_path swig.PNG  %}
 {% asset_img swig.PNG %}
 {% asset_link swig.PNG  %}
 {% asset_img swig.PNG This is an example image %}
 ```
-         
-   
 
 #### 表格
 
@@ -102,7 +101,7 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 
 *演示代码:*
 
-```
+```markdown
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
@@ -111,38 +110,22 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 
 ```
 
-
-
 #### 粗体和斜体,强调
+
 *直观效果:*
 这是**粗体**  
 这是*斜体*  
 这是`强调`  
 *演示代码:*
-```
+
+```markdown
 这是**粗体**  
 这是*斜体*  
 这是`强调`  
 ```
 
-#### 标注 
+#### 标注
 
-
-#### 段落缩进
-*直观效果:*
-> 段落  
-> 哈哈
->> 分类表达
-  
->结束
-*演示代码:*
-```
-> 段落  
-> 哈哈
->> 分类表达
-  
->结束
-```
 #### 列表
 
 ##### 无序列表
@@ -150,11 +133,12 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 *直观效果:*
 - 列表1
 - 列表2
-```
+
+```markdown
 - 列表1
 - 列表2
-
 ```
+
 ##### 有序列表
 
 *直观效果:*
