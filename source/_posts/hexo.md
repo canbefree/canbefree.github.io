@@ -88,40 +88,10 @@ deploy:
 <br>
 ### HEXO使用
 
-#### 本地图片链接
+#### markdown相关语法
 
-##### 公共图片文件
+[链接](https://canbefree.github.io/2016/10/09/markdown/)
 
-将图片资源放到\source\img\swig.PNG
-
-```
-![swig](/img/swig.PNG)
-```
-##### 文章内插图
-
->修改配置文件
-```
-_config.yml
-post_asset_folder: true # 打开之后 公共图片文件引入方式将不可用
->图片插入
-
-添加图片到一下路径  
-\source\_posts\Swig模板\swig.PNG
-
-引用方式
-```
-
-```swig
-![swig](/swig.PNG)
-{% asset_path swig.PNG  %}
-{% asset_img swig.PNG %}
-{% asset_link swig.PNG  %}
-{% asset_img swig.PNG This is an example image %}
-
-```
-
-<br>
-<br>
 ### 相关模块
 
 #### swig一些自定义函数 
@@ -205,9 +175,9 @@ hexo.call(cmd, args)
 >source `#资源文件`
 >_config_yml `主题配置文件`
 
-#### 站内搜索
+#### 站内搜索 [参考](https://www.jianshu.com/p/5b62c01c4dfa)
 
-![参考](https://www.jianshu.com/p/5b62c01c4dfa)
+
 
 1. 安装插件
 

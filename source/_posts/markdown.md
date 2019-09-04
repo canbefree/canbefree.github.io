@@ -26,7 +26,7 @@ categories: blog
 *直观效果:*  
 
 <video id="video" controls="" preload="none">
-      <source id="mp4" src="{% asset_path 视频示例.mp4  %}" type="video/mp4"/>
+      <source id="mp4" src="{% asset_path example-radio.mp4 %}" type="video/mp4"/>
       <p>Your user agent does not support the HTML5 Video element.</p>
 </video>
 
@@ -34,7 +34,7 @@ categories: blog
 
 ```html
 <video id="video" controls="" preload="none">
-      <source id="mp4" src="{% asset_path 视频示例.mp4  %}" type="video/mp4"/>
+      <source id="mp4" src="{% asset_path example-radio.mp4 %}" type="video/mp4"/>
       <p>Your user agent does not support the HTML5 Video element.</p>
 </video>
 ```
@@ -58,36 +58,29 @@ categories: blog
 这是一个文字的引用链接[百度][baidu]
 ```
 
-#### HEXO图片设置（本blog）
+#### 本地图片链接
 
->修改配置文件
+修改配置文件_config.yml
 
-```ini
-_config.yml
-post_asset_folder: true
+```yml
+post_asset_folder: true 
 ```
 
->引入插件(一旦引入插件 公共图片文件引入方式将不可用)
-
-```bash
-npm install https://github.com/CodeFalling/hexo-asset-image --save
-```
-
->图片插入
-
-添加图片到以下路径  
-\source\_posts\swig\swig.PNG
+建立同名博客文件夹,存储图片 \hexo\swig.PNG
+> 发布后会创建： 2016/10/10/hexo/swig.PNG
 
 引用方式
-对于 swig.md文件 使用 (对于文件名和目录名必须一致)
-
-```markdown
-![swig](/swig.PNG)
+```swig
+![swig](swig.PNG)
 {% asset_path swig.PNG  %}
 {% asset_img swig.PNG %}
 {% asset_link swig.PNG  %}
 {% asset_img swig.PNG This is an example image %}
 ```
+
+示例：
+  ![swig](swig.PNG)
+
 
 #### 表格
 
