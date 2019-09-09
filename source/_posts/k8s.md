@@ -17,6 +17,18 @@ categories:
 
     >由于官网是境外服务器,下载可能比较慢,建议用迅雷等p2p工具下载[直接下载地址](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)
 
-    安装后,检查kubelet,docker版本
+    安装后,检查kubelet是否安装完毕
+    ![kubelet版本](1.PNG)
 
-    ![kubelet版本](/1.PNG)
+### 搭建
+
+-  使用kubeadm搭建 k8s [安装](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+  
+
+```
+# 创建一个 Master 节点
+$ kubeadm init
+
+# 将一个 Node 节点加入到当前集群中
+$ kubeadm join <Master 节点的 IP 和端口 >
+```

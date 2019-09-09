@@ -14,11 +14,13 @@ tags:
 ### Hexo博客搭建
 
 #### 新建github仓库
+
 > 命名要规范： `canbefree.github.io`
 
 现在点击访问 [canbefree.github.io](http://canbefree.github.io) 看看有没有生效
 
 #### 安装hexo
+
 > 安装 `nodejs`  
 > `$ npm install hexo -g`  
 > `$ hexo init`  
@@ -26,6 +28,7 @@ tags:
 > `$ hexo s -g -p 4000`   查看效果 -p指定端口
 
 #### 修改配置文件 **_config.yml**
+
 ```yml
 deploy:
   type: git
@@ -34,6 +37,7 @@ deploy:
 ```
 
 #### 创建分支,方便转移博客
+
 将 `hexo init` 生成的文件全部提交的github的分支hexo上（相当于文件备份）
 
 #### 发布流程
@@ -44,12 +48,13 @@ deploy:
 > `$ hexo d` 发布到github博客上
 > `git add .   git commit -m " " git push origin hexo` 修改的文件备份到分支上面
 
-<br>
-<br>
 
 ### hexo迁移
+
 ####  部署blog工作环境
+
 考虑的工作环境的变换。hexo如何在别的机器上部署同样的博客环境也很重要
+
 1. cnpm install hexo -g && hexo init
 2. 从git下载分支hexo,覆盖当前的hexo目录
 3. cnpm install
@@ -59,22 +64,31 @@ deploy:
 7. hexo d
 
 #### 博客部署 
+
 鉴于国内访问github的速度，估计很多人都没有打开博客的欲望。
+
 ##### 借助云服务器部署
+
 > hexo -d 生成的静态页面可以直接部署到服务器上面。 找一台国内服务器能很快部署上去。
 
 ##### 借助coding.net部署
+
 1.创建coding账号
+
 2.[创建新的项目](#1)
+
 3.[加入ssh个人秘钥并测试](#2)
+
 4.[修改hexo _config.yml配置文件](#3)
+
 5.push到博客
+
 6.设置coding(点击项目的 **PAGES 服务** )
 
-<span id="1" >项目名称需要和你的用户名一致,不然可能导致你的css文件 **404 error ** </span>
-<span id="2" >forget about ** SSH ** it does't work</span>
-<span id="3" >
+项目名称需要和你的用户名一致,不然可能导致你的css文件 **404 error ** 
+
 修改git部分
+
 ```yaml
 deploy:
   type: git
@@ -82,10 +96,7 @@ deploy:
   repo: https://git.coding.net/canbefree/canbefree.git
   branch: master
 ```
-</span>
 
-<br>
-<br>
 ### HEXO使用
 
 #### markdown相关语法
@@ -94,7 +105,8 @@ deploy:
 
 ### 相关模块
 
-#### swig一些自定义函数 
+#### swig一些自定义函数
+
 模板内发现很多函数都没见过, is_year,is_tag,经过一系列的*研究*~~
 
 > \node_modules\hexo\lib\plugins\helper\index.js
@@ -111,6 +123,9 @@ Helper.prototype.register = function(name, fn) {
   this.store[name] = fn;
 };
 ```
+### 添加更新日期
+  修改主题配置文件（博客主目录）/themes/next/_config.yml，中找到 updated_at: false 修改为 updated_at: true
+
 #### 关于hexo插件引入
 > \node_modules\hexo-generator-tag\index.js
 ```js
