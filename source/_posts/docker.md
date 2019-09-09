@@ -71,13 +71,16 @@ tags:
 ## 容器化开发环境尝试
 
 
-### go容器化尝试
+### 容器化尝试
 - 卸载本地go
 - 安装vscode插件 - Remote development 
   - docker镜像可以使用阿里云加速构建
   - 比如我使用的[go环境](https://github.com/canbefree/docker-go)
 - 至于插件如何使用请参考插件文档。
 
+- 通过Remote development如何访问 其他容器,比如数据库,其他环境
+    -  数据库建立与宿主机的端口映射, 开发环境再通过 host.docker.internal 访问数据库
+    -  直接使用同样的[docker-compose.yml](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-in-docker-compose/.devcontainer) 配置相同的网络环境 [详情参考](https://code.visualstudio.com/docs/remote/containers-advanced)
 
 框架或者语言时刻都在更新，个人开发视野也很容易产生局限，如果有更好的建议或者其他问题探讨都可以发送邮箱：452198757@qq.com
 
