@@ -1,7 +1,7 @@
 ---
 title: jquery
 date: 2016-10-09 04:26:35
-tags: [jquery,js,markdown]
+tags: [jquery,js,web]
 categories: js
 
 ---

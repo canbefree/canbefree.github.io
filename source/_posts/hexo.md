@@ -4,8 +4,7 @@ date: 2016-10-10 05:05:26
 categories: blog
 tags:
     - hexo
-    - less
-    - swing
+    - blog
 ---
 接触到Hexo,网上接触大量自定义的博客。他们主页的个性,内容简明。对比下自己的博客。感受到了深深的伤害。
 

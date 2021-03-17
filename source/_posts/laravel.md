@@ -3,7 +3,6 @@ title: laravel
 date: 2016-11-07 04:44:55
 tags:
     - php
-    - laravel
 ---
 
 ### laravel介绍 
