@@ -71,31 +71,7 @@ deploy:
 
 > hexo -d 生成的静态页面可以直接部署到服务器上面。 找一台国内服务器能很快部署上去。
 
-##### 借助coding.net部署
-
-1.创建coding账号
-
-2.[创建新的项目](#1)
-
-3.[加入ssh个人秘钥并测试](#2)
-
-4.[修改hexo _config.yml配置文件](#3)
-
-5.push到博客
-
-6.设置coding(点击项目的 **PAGES 服务** )
-
-项目名称需要和你的用户名一致,不然可能导致你的css文件 **404 error ** 
-
-修改git部分
-
-```yaml
-deploy:
-  type: git
-#  repo: https://github.com/canbefree/canbefree.github.io
-  repo: https://git.coding.net/canbefree/canbefree.git
-  branch: master
-```
+##### 借助coding.net部署 (不提供服务了)
 
 ### HEXO使用
 

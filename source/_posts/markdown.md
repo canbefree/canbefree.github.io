@@ -86,20 +86,20 @@ post_asset_folder: true
 
 *直观效果:*
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+| Tables        |      Are      |  Cool |
+| ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
 
 *演示代码:*
 
 ```markdown
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+| Tables        |      Are      |  Cool |
+| ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
 
 ```
 
@@ -147,18 +147,34 @@ post_asset_folder: true
 
 #### 转义字符
 
-|显示结果|实体名称|
-|:-----|:----|
-| &nbsp;|&amp;nbsp;|
-|&lt; |&amp;lt;|
-|&gt; |&amp;gt;|
-| &amp;|&amp;amp;|
-| &quot;|&amp;quot;|
-| &#39;|&amp;apos;(IE不支持)|
+| 显示结果 | 实体名称             |
+| :------- | :------------------- |
+| &nbsp;   | &amp;nbsp;           |
+| &lt;     | &amp;lt;             |
+| &gt;     | &amp;gt;             |
+| &amp;    | &amp;amp;            |
+| &quot;   | &amp;quot;           |
+| &#39;    | &amp;apos;(IE不支持) |
 
 [hexo-image]: http://img.shields.io/badge/Hexo-2.4+-2BAF2B.svg?style=flat-square
 [hexo-url]: http://hexo.io  
 [baidu]: http://www.baidu.com
+
+#### TODO
+
+- [ ] 支持以 PDF 格式导出文稿
+- [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
+- [x] 新增 Todo 列表功能
+- [x] 修复 LaTex 公式渲染问题
+- [x] 新增 LaTex 公式编号功能
+
+#### 画图
+
+已经支持mermaid
+```mermaid
+graph TD
+    Start --> Stop
+```
 
 
 ### 总结
