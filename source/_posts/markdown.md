@@ -170,12 +170,12 @@ post_asset_folder: true
 
 #### 画图
 
-已经支持mermaid
+支持mermaid
+
 ```mermaid
 graph TD
     Start --> Stop
 ```
-
 
 ### 总结
 

@@ -102,7 +102,7 @@ Helper.prototype.register = function(name, fn) {
 ### 添加更新日期
   修改主题配置文件（博客主目录）/themes/next/_config.yml，中找到 updated_at: false 修改为 updated_at: true
 
-#### 关于hexo插件引入
+### 关于hexo插件引入
 > \node_modules\hexo-generator-tag\index.js
 ```js
 hexo.extend.generator.register('tag', require('./lib/generator'));
@@ -136,18 +136,68 @@ hexo.call(cmd, args)
 
 <br>
 <br>
-### yo自定义主题
 
-#### 生成初始文件
+### 自定义主题(NEXT)
+
+#### 安装主题
+
+直接clone到 theme目录即可
 ```bash
-    npm install generator-hexo-theme
-    yo hexo-theme
+git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
 ```
-> 取名字 freestyle
-> 选择 swig
-> 选择 scss
-> 选择 bower.json
-> 将主题拷贝到项目文件夹下
+#### 修改主题配置
+> 修改 themes/next/_config.yml 
+
+mermaid: 直接打开注释即可
+
+站内搜索 [参考](https://www.jianshu.com/p/5b62c01c4dfa)
+
+1. 安装插件
+
+```shell
+  npm install hexo-generator-search
+  npm install hexo-generator-searchdb
+```
+
+2. 配置next中的搜索入口 (themes/next/_config.yml)
+
+``` yml
+local_search:
+  enable: true
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: -1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: true
+
+```
+#### 添加mermaid插件
+
+1. 修改主题配置文件
+
+```yml
+# Mermaid tag
+mermaid:
+  enable: true
+  # Available themes: default | dark | forest | neutral
+  theme: forest
+  cdn: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
+
+```
+2. 安装插件
+```bash
+$ npm install hexo-filter-mermaid-diagrams
+```
+
+3. 修改配置 themes/next/layout/_third-party/tags/mermaid.swig
+```
+{%- set mermaid_uri = theme.vendors.mermaid or theme.mermaid.cdn %}
+```
+
 
 #### 主题结构查看
 >layout #`布局文件`
@@ -166,40 +216,3 @@ hexo.call(cmd, args)
 >source `#资源文件`
 >_config_yml `主题配置文件`
 
-#### 站内搜索 [参考](https://www.jianshu.com/p/5b62c01c4dfa)
-
-
-
-1. 安装插件
-
-```shell
-  npm install hexo-generator-search
-  npm install hexo-generator-searchdb
-```
-
-2. 修改配置
-
-在你的hexo目录下的_config.yml中增加如下配置：
-
-```yml
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
-```
-
-3. 配置next中的搜索入口 (themes/next/_config.yml)
-
-``` yml
-# Local search
-local_search:
-  enable: true
-  # if auto, trigger search by changing input
-  # if manual, trigger search by pressing enter key or search button
-  trigger: auto
-  # show top n results per article, show all results by setting to -1
-  top_n_per_article: 1
-
-
-```
