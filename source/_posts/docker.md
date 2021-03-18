@@ -61,8 +61,7 @@ tags:
     -  数据库建立与宿主机的端口映射, 开发环境再通过 host.docker.internal 访问数据库
     -  直接使用同样的[docker-compose.yml](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-in-docker-compose/.devcontainer) 配置相同的网络环境 [详情参考](https://code.visualstudio.com/docs/remote/containers-advanced)
 
-> 框架或者语言时刻都在更新，个人开发视野也很容易产生局限，如果有更好的建议或者其他问题探讨都可以发送邮箱
-
+> 框架或者语言时刻都在更新，个人开发视野也很容易产生局限，如果有更好的建议或者其他问题探讨都可以及时评论
 
 ### 参考
 
