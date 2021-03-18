@@ -276,8 +276,9 @@ reward:
 follow_me:
   #Twitter: https://twitter.com/username || fab fa-twitter
   #Telegram: https://t.me/channel_name || fab fa-telegram
-  #WeChat: /images/wechat_channel.jpg || fab fa-weixin
-  #RSS: /atom.xml || fa fa-rss
+  WeChat: /images/wechat_channel.png || fab fa-weixin
+  微博: /images/webo_channel.png || fab fa-weibo
+  # RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
@@ -677,6 +678,8 @@ google_analytics:
 
 # Baidu Analytics
 baidu_analytics: # <app_id>
+  enable: true
+  app_id: 77819a1a4543d1397e30efeef85981c7
 
 # Growingio Analytics
 growingio_analytics: # <project_id>
