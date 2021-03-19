@@ -6,7 +6,7 @@ tags: [git,github]
 ---
 
 
-#### fork别人的项目后如何保持同步更新
+### fork别人的项目后如何保持同步更新
 
 ![git-pull-request](git-pull-request.jpg)
 
@@ -39,7 +39,22 @@ $ git rebase -i <first_commit>
   5 pick 0175f03 rename common include
   6 pick 7f3f665 update group name && update config
 
+> 将pick改成drop也可以
+
 这样第四个提交就会合并进入第三个提交。
 等合并完提交之后再运行
 $ git push -f
 $ git gc --prune=now
+
+
+### github直接生成文件链接
+
+直接替换路劲即可： 
+```
+https://github.com/canbefree/docker-common/blob/master/docker-compose-etcd.yml
+
+↓
+
+https://raw.githubusercontent.com/canbefree/docker-common/master/docker-compose-etcd.yml
+
+```
