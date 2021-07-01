@@ -22,3 +22,13 @@ pre {
   hyphens: none;
   position: relative;
 }
+
+img{
+    margin: 0.7rem auto;
+    box-shadow: 0 0 10px #555;
+}
+
+img[title=img-size-100-200]{
+  width: 200px;
+  height: 100px;
+}

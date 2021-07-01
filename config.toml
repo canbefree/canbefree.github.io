@@ -1,7 +1,11 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
+
 title = "Canbefree"
 theme = "ananke"
+DefaultContentLanguage = "zh"
 
 [Params]
-uselatex = true
+ 	uselatex = true
+ 	gitlab = "https://github.com/canbefree/"
+	recent_posts_number = 10
