@@ -50,7 +50,12 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
+
+  {{ if .Site.Params.uselatex }}
+  {{ partial "footer_mathjax.html" . }}
+  {{ end }}
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({ startOnLoad: true });</script>
 <script>
