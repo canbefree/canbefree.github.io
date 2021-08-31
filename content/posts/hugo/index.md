@@ -2,7 +2,12 @@
 title: "HUGO"
 date: 2021-07-01T08:20:30Z
 author: xieyt01
+categories: [blog,golang]
 draft: false
+tags:
+    - hexo
+    - blog
+
 ---
 
 ### hugo的介绍
