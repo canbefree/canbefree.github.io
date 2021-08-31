@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Docker容器开发 - canbefree博客</title><meta name="Description" content=""><meta property="og:title" content="Docker容器开发" />
+<meta property="og:description" content="docker介绍 开发人员容器进化历程: vm虚拟机-&gt; vargant -&gt; 容器化，在之前的工作经历中，容器开发没出来之前，在搭建本地环境都比较复杂，ng" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://canbefree.github.io/posts/docker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-19T16:28:53+00:00" />
+<meta property="article:modified_time" content="2018-06-19T16:28:53+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker容器开发"/>
+<meta name="twitter:description" content="docker介绍 开发人员容器进化历程: vm虚拟机-&gt; vargant -&gt; 容器化，在之前的工作经历中，容器开发没出来之前，在搭建本地环境都比较复杂，ng"/>
+<meta name="application-name" content="canbefree博客">
+<meta name="apple-mobile-web-app-title" content="canbefree博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://canbefree.github.io/posts/docker/" /><link rel="prev" href="https://canbefree.github.io/posts/laravel/" /><link rel="next" href="https://canbefree.github.io/posts/typora/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker容器开发",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/canbefree.github.io\/posts\/docker\/"
+        },"genre": "posts","keywords": "vscode, docker","wordcount":  1169 ,
+        "url": "https:\/\/canbefree.github.io\/posts\/docker\/","datePublished": "2018-06-19T16:28:53+00:00","dateModified": "2018-06-19T16:28:53+00:00","publisher": {
+            "@type": "Organization",
+            "name": "xieyt01"},"author": {
+                "@type": "Person",
+                "name": "xieyt01"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="canbefree博客">canbefree博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="canbefree博客">canbefree博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Docker容器开发</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>xieyt01</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2018-06-19">2018-06-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1169 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker介绍">docker介绍</a></li>
+    <li><a href="#环境搭建">环境搭建</a>
+      <ul>
+        <li><a href="#vscode--docker开发环境搭建">vscode + docker开发环境搭建</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他问题问题">其他问题问题</a>
+      <ul>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://docs.docker.com/" target="_blank" rel="noopener noreffer"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/docker-yellow"
+        data-srcset="https://img.shields.io/badge/docker-yellow, https://img.shields.io/badge/docker-yellow 1.5x, https://img.shields.io/badge/docker-yellow 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/docker-yellow"
+        title="https://img.shields.io/badge/docker-yellow" /></a></p>
+<h2 id="docker介绍">docker介绍</h2>
+<ol>
+<li>开发人员容器进化历程: vm虚拟机-&gt; vargant -&gt; 容器化，在之前的工作经历中，容器开发没出来之前，在搭建本地环境都比较复杂，nginx,功能依赖zookeeper等都需要自己build,配置，工作环境的变化，你不得不重新花大量时间。在博雅的工作期间，比较流行的就是用虚拟机导入别的同事提前打包好的镜像，但是镜像大小动辄两个G，而且虚拟机启动慢，占用cpu过多。也会因为个人机器环境出现各种问题。</li>
+<li>容器开发的好处：开发人员在本地编写代码，可以更方便和同事共享工作。直接打包一键构建。容易模拟，同步生产，测试。</li>
+<li>简易，docker+vscode即可。开放的镜像资源很多。</li>
+</ol>
+<h2 id="环境搭建">环境搭建</h2>
+<h3 id="vscode--docker开发环境搭建">vscode + docker开发环境搭建</h3>
+<ul>
+<li>
+<p><a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener noreffer">docker安装</a></p>
+<ul>
+<li>下载比较慢,使用迅雷或者 choco (choco search docker-desktop)</li>
+</ul>
+</li>
+<li>
+<p><a href="https://yq.aliyun.com/articles/58512" target="_blank" rel="noopener noreffer">阿里云自动构建</a></p>
+<ul>
+<li>
+<p>dockerhub的访问速度一般，可以考虑容器托管
+我一直用的阿里云镜像服务，很好用，除了登陆需要手机授权比较麻烦，可以使用webhook实现 github/私有gitlab的自动镜像构建</p>
+</li>
+<li>
+<p>使用&quot;docker tag&quot;命令重命名镜像，并将它通过专有网络地址推送至Registry。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>vscode安装配置</p>
+<ul>
+<li>必须安装vscode插件: ms-vscode-remote.remote-containers
+<ul>
+<li>容器开发核心插件, 直接通过*Remote-Container:Add Development&hellip;*命令选择对应语言可以初始化一个docker容器开发环境，会在当前目录下生成一个.devcontainer,包含所需的Dockerfile.可以进一步配置.</li>
+<li>执行 <em>Remote-Container:Open folder in container&hellip;</em> 即可。</li>
+<li>也可以使用docker-compose的配置化，具体可以参考我的<a href="https://github.com/canbefree/docker-go" target="_blank" rel="noopener noreffer">go环境</a>搭建</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：使用remote开发,如果宿主机和容器的系统不一样，通过容器volumns挂载的文件的访问速度会比较慢，会影响git的使用,所以不建议使用volumns直接挂载开发目录，直接通过<code>docker create volumns</code> 会比较好。</p>
+</blockquote>
+<ul>
+<li>容器之间与宿主机文件的复制
+<ul>
+<li>通过 docker cp 命令(比较麻烦,因为需要知道容器ID)</li>
+<li>通过volumn挂载用户目录(推荐)</li>
+<li>容器本地持久化：
+<ul>
+<li>备份：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run --rm  --volumes-from docker-go  -v  D:/backup:/backup ubuntu tar cvf backup/back.tar -C /workspace .
+</code></pre></div><p>将/workspace 备份到 D:/backup下</p>
+</li>
+<li>恢复
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"> docker run --rm --volumes-from docker-go -v  D:backup:/backup ubuntu tar xvf backup/back.tar -C /workspace
+</code></pre></div><p>将</p>
+</li>
+</ul>
+</li>
+<li>直接对镜像进行备份 <em>docker login &hellip; docker push &hellip;</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>小提示： 宿主机copy内容到容器可以直接通过vscode操作，容器到宿主机只能复制图片等特殊格式</p>
+</blockquote>
+<h2 id="其他问题问题">其他问题问题</h2>
+<ol>
+<li>
+<p>添加volumn配置时 无法使用 <code>docker-compose restart [container_name]</code> 生效,请stop后在启动</p>
+</li>
+<li>
+<p>通过Remote development如何访问 其他容器,比如数据库,其他环境</p>
+<ul>
+<li>数据库建立与宿主机的端口映射, 开发环境再通过 host.docker.internal 访问数据库</li>
+<li>直接使用同样的<a href="https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-in-docker-compose/.devcontainer" target="_blank" rel="noopener noreffer">docker-compose.yml</a> 配置相同的网络环境 <a href="https://code.visualstudio.com/docs/remote/containers-advanced" target="_blank" rel="noopener noreffer">详情参考</a></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>框架或者语言时刻都在更新，个人开发视野也很容易产生局限，如果有更好的建议或者其他问题探讨都可以及时评论</p>
+</blockquote>
+<h3 id="参考">参考</h3>
+<p>docker <a href="https://docs.docker.com/" target="_blank" rel="noopener noreffer">官方文档</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2018-06-19</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vscode/">vscode</a>,&nbsp;<a href="/tags/docker/">docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/laravel/" class="prev" rel="prev" title="laravel"><i class="fas fa-angle-left fa-fw"></i>laravel</a>
+            <a href="/posts/typora/" class="next" rel="next" title="本地笔记怎么做？">本地笔记怎么做？<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0-DEV">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a
+                    href="/"
+                    target="_blank"></a></span></div>
+    </div>
+</footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

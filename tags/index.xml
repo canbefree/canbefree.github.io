@@ -1,0 +1,70 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - canbefree博客</title>
+        <link>https://canbefree.github.io/tags/</link>
+        <description>Tags - 标签 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</lastBuildDate><atom:link href="https://canbefree.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>blog</title>
+    <link>https://canbefree.github.io/tags/blog/</link>
+    <pubDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/blog/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>hexo</title>
+    <link>https://canbefree.github.io/tags/hexo/</link>
+    <pubDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/hexo/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>docker</title>
+    <link>https://canbefree.github.io/tags/docker/</link>
+    <pubDate>Tue, 19 Jun 2018 16:28:53 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/docker/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>vscode</title>
+    <link>https://canbefree.github.io/tags/vscode/</link>
+    <pubDate>Tue, 19 Jun 2018 16:28:53 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/vscode/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>php</title>
+    <link>https://canbefree.github.io/tags/php/</link>
+    <pubDate>Mon, 07 Nov 2016 04:44:55 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/php/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>python</title>
+    <link>https://canbefree.github.io/tags/python/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>scrapy</title>
+    <link>https://canbefree.github.io/tags/scrapy/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/scrapy/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>spider</title>
+    <link>https://canbefree.github.io/tags/spider/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/spider/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>tool</title>
+    <link>https://canbefree.github.io/tags/tool/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/tags/tool/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

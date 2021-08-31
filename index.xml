@@ -1,0 +1,51 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>canbefree博客</title>
+        <link>https://canbefree.github.io/</link>
+        <description>canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</lastBuildDate>
+            <atom:link href="https://canbefree.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>HUGO</title>
+    <link>https://canbefree.github.io/posts/hugo/</link>
+    <pubDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/hugo/</guid>
+    <description><![CDATA[hugo的介绍 hugo是一个 不一般的 静态网站生成器 官方文档 中文文档 安全性: 基于go module文件,保证第三方插件的安全(checksum)]]></description>
+</item><item>
+    <title>本地笔记怎么做？</title>
+    <link>https://canbefree.github.io/posts/typora/</link>
+    <pubDate>Fri, 09 Oct 2020 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/typora/</guid>
+    <description><![CDATA[本地笔记该怎么做 烦恼 之前使用onenote笔记，但是onenote有个缺陷，不支持markdown; 作为笔记编辑排版时间成本比较高； mark]]></description>
+</item><item>
+    <title>Docker容器开发</title>
+    <link>https://canbefree.github.io/posts/docker/</link>
+    <pubDate>Tue, 19 Jun 2018 16:28:53 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/docker/</guid>
+    <description><![CDATA[docker介绍 开发人员容器进化历程: vm虚拟机-&gt; vargant -&gt; 容器化，在之前的工作经历中，容器开发没出来之前，在搭建本地环境都比较复杂，ng]]></description>
+</item><item>
+    <title>laravel</title>
+    <link>https://canbefree.github.io/posts/laravel/</link>
+    <pubDate>Mon, 07 Nov 2016 04:44:55 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/laravel/</guid>
+    <description><![CDATA[laravel介绍 快速开发,composer,less laravel注意事项 搭建的时候 一定要把域名的根目录指向 public.因为larave]]></description>
+</item><item>
+    <title>Hexo</title>
+    <link>https://canbefree.github.io/posts/hexo/</link>
+    <pubDate>Mon, 10 Oct 2016 05:05:26 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/hexo/</guid>
+    <description><![CDATA[接触到Hexo,网上接触大量自定义的博客。他们主页的个性,内容简明。对比下自己的博客。感受到了深深的伤害。 Hexo博客搭建 新建github仓]]></description>
+</item><item>
+    <title>爬虫</title>
+    <link>https://canbefree.github.io/posts/spider/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/spider/</guid>
+    <description><![CDATA[python爬虫 安装依赖 python3.7 scrpay库 twisted https://twistedmatrix.com/trac/wiki/Downloads pip3 install scrapy chromedriver google或者百度搜索下载,本人使用 choco 安装 (http://npm.taobao.org/mirrors/chromedriver/75.0.3770.8/) selenium pip install selenium 谷歌浏览器 简单的爬虫 简单示例 爬取狗]]></description>
+</item></channel>
+</rss>

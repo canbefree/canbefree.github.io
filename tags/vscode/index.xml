@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>vscode - 标签 - canbefree博客</title>
+        <link>https://canbefree.github.io/tags/vscode/</link>
+        <description>vscode - 标签 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jun 2018 16:28:53 &#43;0000</lastBuildDate><atom:link href="https://canbefree.github.io/tags/vscode/" rel="self" type="application/rss+xml" /><item>
+    <title>Docker容器开发</title>
+    <link>https://canbefree.github.io/posts/docker/</link>
+    <pubDate>Tue, 19 Jun 2018 16:28:53 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/docker/</guid>
+    <description><![CDATA[docker介绍 开发人员容器进化历程: vm虚拟机-&gt; vargant -&gt; 容器化，在之前的工作经历中，容器开发没出来之前，在搭建本地环境都比较复杂，ng]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>python - 分类 - canbefree博客</title>
+        <link>https://canbefree.github.io/categories/python/</link>
+        <description>python - 分类 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</lastBuildDate><atom:link href="https://canbefree.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>爬虫</title>
+    <link>https://canbefree.github.io/posts/spider/</link>
+    <pubDate>Sun, 09 Oct 2016 09:15:52 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/spider/</guid>
+    <description><![CDATA[python爬虫 安装依赖 python3.7 scrpay库 twisted https://twistedmatrix.com/trac/wiki/Downloads pip3 install scrapy chromedriver google或者百度搜索下载,本人使用 choco 安装 (http://npm.taobao.org/mirrors/chromedriver/75.0.3770.8/) selenium pip install selenium 谷歌浏览器 简单的爬虫 简单示例 爬取狗]]></description>
+</item></channel>
+</rss>

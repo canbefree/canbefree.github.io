@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>blog - 分类 - canbefree博客</title>
+        <link>https://canbefree.github.io/categories/blog/</link>
+        <description>blog - 分类 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</lastBuildDate><atom:link href="https://canbefree.github.io/categories/blog/" rel="self" type="application/rss+xml" /><item>
+    <title>HUGO</title>
+    <link>https://canbefree.github.io/posts/hugo/</link>
+    <pubDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/hugo/</guid>
+    <description><![CDATA[hugo的介绍 hugo是一个 不一般的 静态网站生成器 官方文档 中文文档 安全性: 基于go module文件,保证第三方插件的安全(checksum)]]></description>
+</item><item>
+    <title>Hexo</title>
+    <link>https://canbefree.github.io/posts/hexo/</link>
+    <pubDate>Mon, 10 Oct 2016 05:05:26 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/hexo/</guid>
+    <description><![CDATA[接触到Hexo,网上接触大量自定义的博客。他们主页的个性,内容简明。对比下自己的博客。感受到了深深的伤害。 Hexo博客搭建 新建github仓]]></description>
+</item></channel>
+</rss>

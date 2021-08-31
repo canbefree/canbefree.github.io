@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>laravel - canbefree博客</title><meta name="Description" content=""><meta property="og:title" content="laravel" />
+<meta property="og:description" content="laravel介绍 快速开发,composer,less laravel注意事项 搭建的时候 一定要把域名的根目录指向 public.因为larave" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://canbefree.github.io/posts/laravel/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-11-07T04:44:55+00:00" />
+<meta property="article:modified_time" content="2016-11-07T04:44:55+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="laravel"/>
+<meta name="twitter:description" content="laravel介绍 快速开发,composer,less laravel注意事项 搭建的时候 一定要把域名的根目录指向 public.因为larave"/>
+<meta name="application-name" content="canbefree博客">
+<meta name="apple-mobile-web-app-title" content="canbefree博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://canbefree.github.io/posts/laravel/" /><link rel="prev" href="https://canbefree.github.io/posts/hexo/" /><link rel="next" href="https://canbefree.github.io/posts/docker/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "laravel",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/canbefree.github.io\/posts\/laravel\/"
+        },"genre": "posts","keywords": "php","wordcount":  1842 ,
+        "url": "https:\/\/canbefree.github.io\/posts\/laravel\/","datePublished": "2016-11-07T04:44:55+00:00","dateModified": "2016-11-07T04:44:55+00:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="canbefree博客">canbefree博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="canbefree博客">canbefree博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">laravel</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2016-11-07">2016-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1842 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#laravel介绍">laravel介绍</a></li>
+        <li><a href="#laravel注意事项">laravel注意事项</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#如何正确使用中间件">如何正确使用中间件</a></li>
+        <li><a href="#服务提供者provider">服务提供者(PROVIDER)</a></li>
+        <li><a href="#事件">事件</a></li>
+        <li><a href="#邮件设置">邮件设置</a></li>
+        <li><a href="#db">DB</a></li>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#elixir">Elixir</a></li>
+        <li><a href="#blade模板">blade模板</a></li>
+        <li><a href="#单元测试">单元测试</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="laravel介绍">laravel介绍</h3>
+<p>快速开发,composer,less</p>
+<h3 id="laravel注意事项">laravel注意事项</h3>
+<blockquote>
+<p>搭建的时候 一定要把域名的根目录指向 <em>public</em>.因为laravel中是相对<em>public</em>定位文件位置。
+php artisan clear-compiled //不生成编译文件</p>
+</blockquote>
+<h3 id="安装">安装</h3>
+<h4 id="npm-install">npm install</h4>
+<pre tabindex="0"><code>    cnpm install --no-bin-links #不要软连接
+</code></pre><h3 id="如何正确使用中间件">如何正确使用中间件</h3>
+<h4 id="创建中间件">创建中间件</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">php artisan make:middleware Bysso/AuthMiddleware
+</code></pre></div><h4 id="激活中间件">激活中间件</h4>
+<blockquote>
+<p>我们需要在使用前注册每一个中间件。在Laravel有两种类型的中间件。</p>
+</blockquote>
+<p>1.全局中间件
+所有的路由都会生效。<br>
+2.路由中间件<br>
+某个路由配置使用到这个中间件才会生效。</p>
+<h3 id="服务提供者provider">服务提供者(PROVIDER)</h3>
+<p>为什么要用服务提供者？
+1.我建立了一个服务，当应用需要调用这个服务的时候，就引用它。后来业务增长，代码到处都用到了这个服务。
+有一天这个服务废弃了,我需要遍历所有的代码去修改它。岂不是很不方便。（代码迁移,修改类名,基础架构修改
+比如DB存储和分布式存储).使用服务提供者能轻易切换其实现。
+2.便于编写测试用例</p>
+<h4 id="服务容器">服务容器</h4>
+<h5 id="什么是依赖注入">什么是依赖注入</h5>
+<blockquote>
+<p>类的依赖项通过构造函数，或者某些情况下通过「setter」方法「注入」到类中</p>
+</blockquote>
+<pre tabindex="0"><code>class UserController extends Controller{ // $users 内容的修改 不会影响到 UserController 下层依赖上层，用的时候传入，而不是针对下层去修改
+    ......
+    public function __construct(UserRepository $users)
+    {
+        $this-&gt;users = $users;
+    }
+    .....
+}
+
+</code></pre><h5 id="服务绑定">服务绑定</h5>
+<blockquote>
+<p>简单绑定
+绑定一个单例
+绑定实例
+绑定初始数据</p>
+</blockquote>
+<h5 id="解析">解析</h5>
+<blockquote>
+<p>make 方法
+resolve 方法</p>
+</blockquote>
+<h5 id="facade">FACADE</h5>
+<ol>
+<li>laravel5创建一个facade，可以将某个service注册个门面，这样，使用的时候就不需要麻烦地use 了</li>
+<li>facade调用service方法都通过静态方法调用。</li>
+<li>使用facade前提必须注册provider,以及配置他的别名</li>
+</ol>
+<p>aliases的原理参考 class_alias  [RegisterFacades]-&gt;bootstrap()</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="c1">#file config/app.php
+</span><span class="c1">#.....
+</span><span class="c1"></span>    <span class="s1">&#39;aliases&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="sd">/**
+</span><span class="sd">         * 自己创建的facade
+</span><span class="sd">         */</span>
+        <span class="s1">&#39;TestF&#39;</span> <span class="o">=&gt;</span> <span class="nx">App\Facades\TestFacade</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+
+    <span class="p">],</span>
+<span class="c1">#.....
+</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>  <span class="c1">#facade方法调用都是静态方法。 如TestF::callMe(&#34;TestController&#34;);
+</span><span class="c1"></span>    <span class="nx">·····</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$method</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$instance</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">getFacadeRoot</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$instance</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">RuntimeException</span><span class="p">(</span><span class="s1">&#39;A facade root has not been set.&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$instance</span><span class="o">-&gt;</span><span class="nv">$method</span><span class="p">(</span><span class="o">...</span><span class="nv">$args</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></div><ol start="3">
+<li>单例调用,返回改别名绑定的类。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+    <span class="nx">·····</span>
+    <span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">resolveFacadeInstance</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">is_object</span><span class="p">(</span><span class="nv">$name</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$name</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="k">static</span><span class="o">::</span><span class="nv">$resolvedInstance</span><span class="p">[</span><span class="nv">$name</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">static</span><span class="o">::</span><span class="nv">$resolvedInstance</span><span class="p">[</span><span class="nv">$name</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">static</span><span class="o">::</span><span class="nv">$resolvedInstance</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="nv">$app</span><span class="p">[</span><span class="nv">$name</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></div><h3 id="事件">事件</h3>
+<blockquote>
+<p>记录一个click路由每个id的提交次数。</p>
+</blockquote>
+<h4 id="生成类">生成类</h4>
+<p>指定文件\app\Providers\EventServiceProvider.php</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="k">protected</span> <span class="nv">$listen</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;App\Events\SomeEvent&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;App\Listeners\EventListener&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+</code></pre></div><blockquote>
+<p>执行 php artisan event:generate 生成 app\Events\SomeEvent.php 以及 app\Listeners\EventListener.php 文件</p>
+</blockquote>
+<h4 id="初始化事件">初始化事件</h4>
+<p>修改SomeEvent构造方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//
+</span><span class="c1"></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">post</span> <span class="o">=</span> <span class="nv">$post</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div><h4 id="定义监听事件">定义监听事件</h4>
+<p>修改 EventListener</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">    <span class="sd">/**
+</span><span class="sd">     * Create the event listener.
+</span><span class="sd">     *
+</span><span class="sd">     * @return void
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Store</span> <span class="nv">$session</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//
+</span><span class="c1"></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="nv">$session</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * Handle the event.
+</span><span class="sd">     *
+</span><span class="sd">     * @param  SomeEvent  $event
+</span><span class="sd">     * @return void
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">SomeEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">;</span>
+        <span class="nv">$key</span> <span class="o">=</span> <span class="s2">&#34;click:&#34;</span><span class="o">.</span><span class="nv">$post</span><span class="p">;</span>
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$key</span><span class="s2">&#34;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div><h4 id="触发事件">触发事件</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">use</span> <span class="nx">Illuminate\Session\Store</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TestController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+
+    <span class="c1">//依赖注入
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">Store</span> <span class="nv">$session</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="nv">$session</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">click</span><span class="p">(</span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$key</span> <span class="o">=</span> <span class="s2">&#34;click:&#34;</span><span class="o">.</span><span class="nv">$id</span><span class="p">;</span>
+        <span class="nx">Event</span><span class="o">::</span><span class="na">fire</span><span class="p">(</span><span class="k">new</span> <span class="nx">SomeEvent</span><span class="p">(</span><span class="nv">$id</span><span class="p">));</span>
+        <span class="k">echo</span> <span class="s2">&#34;该界面已经被点击了&#34;</span><span class="p">;</span>
+        <span class="nx">var_export</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$key</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="邮件设置">邮件设置</h3>
+<h4 id="完善配置">完善配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="na">MAIL_DRIVER</span><span class="o">=</span><span class="s">smtp</span>
+<span class="na">MAIL_FROM_ADDRESS</span><span class="o">=</span>  <span class="s">//用户邮件地址</span>
+<span class="na">MAIL_HOST</span><span class="o">=</span><span class="s">mailtrap.io //邮件服务器，可以去邮件设置查看。</span>
+<span class="na">MAIL_PORT</span><span class="o">=</span><span class="s">2525 //ssl 默认 465</span>
+<span class="na">MAIL_USERNAME</span><span class="o">=</span><span class="s">null  //用户名</span>
+<span class="na">MAIL_PASSWORD</span><span class="o">=</span><span class="s">null  //用户密码</span>
+<span class="na">MAIL_ENCRYPTION</span><span class="o">=</span><span class="s">null //根据端口选择对应的加密方式</span>
+<span class="na">MAIL_FROM_NAME</span><span class="o">=</span><span class="s">neoxie //发送人姓名</span>
+</code></pre></div><h4 id="发送纯文本邮件">发送纯文本邮件</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php">        <span class="nx">Mail</span><span class="o">::</span><span class="na">raw</span><span class="p">(</span><span class="s1">&#39;你好，我是PHP程序！&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$message</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$to</span> <span class="o">=</span> <span class="s1">&#39;452198757@qq.com&#39;</span><span class="p">;</span>
+            <span class="nv">$message</span> <span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="nv">$to</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">subject</span><span class="p">(</span><span class="s1">&#39;纯文本信息邮件测试&#39;</span><span class="p">);</span>
+        <span class="p">});</span>
+
+</code></pre></div><h4 id="发送html邮件">发送html邮件</h4>
+<blockquote>
+<p>这个需要创建 mails.test模板</p>
+</blockquote>
+<pre tabindex="0"><code>        $name = '谢宇天';
+        $flag = Mail::send('mails.test',['name'=&gt;$name],function($message){
+            $to = '452198757@qq.com';
+            $message -&gt;to($to)-&gt;subject('邮件测试');
+        });
+</code></pre><h3 id="db">DB</h3>
+<pre tabindex="0"><code>User::create(['id'=&gt;1,'name'=&gt;'小明']);
+</code></pre><h3 id="model">Model</h3>
+<p>php artisan make:request StoreArticleRequest</p>
+<h3 id="elixir">Elixir</h3>
+<blockquote>
+<p>注意,首先前端不是我的工作重点（这点一定要牢记）</p>
+</blockquote>
+<p>laravel-mix <a href="https://github.com/canbefree/html_project" target="_blank" rel="noopener noreffer">html项目</a></p>
+<blockquote>
+<p>这个laravel组件集成了webpack以及压缩合并js,css很多方法。值得学习和在今后的项目中引用。</p>
+</blockquote>
+<blockquote>
+<p>构建单项目文件时，不希望引入的node_modules的模块经常性重新打包怎么办？</p>
+</blockquote>
+<p>用extract([&lsquo;vue&rsquo;])</p>
+<pre tabindex="0"><code>mix.js('resources/assets/js/app.js', 'public/js')
+   .extract(['vue'])
+</code></pre><pre tabindex="0"><code>&lt;!-- 保证文件依次引用 --&gt;
+&lt;script src=&quot;/js/manifest.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/vendor.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+</code></pre><h3 id="blade模板">blade模板</h3>
+<h4 id="extents">extents</h4>
+<p>相当于 require</p>
+<h4 id="yield">yield</h4>
+<p>插入一个片段,配合section实现</p>
+<pre tabindex="0"><code>@yield('content')
+</code></pre><h4 id="section">section</h4>
+<p>定义一个判断</p>
+<pre tabindex="0"><code>@section('content')
+    @@parent &lt;!-- 不是覆盖 而是引入--&gt;
+    页面的内容
+@endsection
+</code></pre><h4 id="关于打印">关于打印</h4>
+<p>Hello, @{{ $name }}. // 输出 Hello, {{ $name }}.
+Hello, {!! $name !!}. //输出name的内容 不转义</p>
+<h4 id="语法糖">语法糖</h4>
+<pre tabindex="0"><code>{{ $name or 'Default' }} //{{ isset($name) ? $name : 'Default' }}
+</code></pre><pre tabindex="0"><code>@if (count($records) === 1)
+    I have one record!
+@elseif (count($records) &gt; 1)
+    I have multiple records!
+@else
+    I don't have any records!
+@endif
+</code></pre><pre tabindex="0"><code>@unless (Auth::check())
+    You are not signed in.
+@endunless
+</code></pre><pre tabindex="0"><code>@for ($i = 0; $i &lt; 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    &lt;p&gt;This is user {{ $user-&gt;id }}&lt;/p&gt;
+@endforeach
+
+@forelse ($users as $user)
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;No users&lt;/p&gt;
+@endforelse
+
+@while (true)
+    &lt;p&gt;I'm looping forever.&lt;/p&gt;
+@endwhile
+</code></pre><h3 id="单元测试">单元测试</h3>
+<p>####安装phpunit</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">➜ wget https://phar.phpunit.de/phpunit.phar
+
+➜ chmod +x phpunit.phar
+
+➜ sudo mv phpunit.phar /usr/local/bin/phpunit
+
+➜ phpunit --version
+PHPUnit 5.4.0 by Sebastian Bergmann and contributors.
+</code></pre></div><h4 id="执行测试">执行测试</h4>
+<pre tabindex="0"><code class="language-console" data-lang="console">$ phpunit
+</code></pre><h4 id="编写测试用例">编写测试用例</h4>
+<pre tabindex="0"><code class="language-console" data-lang="console">php artisan make:test SigTest
+
+php artisan make:model Models/SigModel
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">SigModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">//生成sig签名
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">sign</span><span class="p">(</span><span class="nv">$post</span><span class="p">){</span>
+        <span class="nx">unset</span><span class="p">(</span><span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;sig&#39;</span><span class="p">]);</span>
+        <span class="nx">sort</span><span class="p">(</span><span class="nv">$post</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">md5</span><span class="p">(</span><span class="nx">serialize</span><span class="p">(</span><span class="nv">$post</span><span class="p">));</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">checkSig</span><span class="p">(</span><span class="nv">$post</span><span class="p">){</span>
+        <span class="nv">$sig</span> <span class="o">=</span> <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;sig&#39;</span><span class="p">];</span>
+        <span class="nx">unset</span><span class="p">(</span><span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;sig&#39;</span><span class="p">]);</span>
+        <span class="nv">$sign</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">sign</span><span class="p">(</span><span class="nv">$post</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$sig</span> <span class="o">==</span> <span class="nv">$sign</span><span class="o">?</span><span class="k">true</span><span class="o">:</span><span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">use</span> <span class="nx">App\Models\SigModel</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">SigTest</span> <span class="k">extends</span> <span class="nx">TestCase</span>
+<span class="p">{</span>
+    <span class="sd">/**
+</span><span class="sd">     * A basic test example.
+</span><span class="sd">     *
+</span><span class="sd">     * @return void
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testExample</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$post</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;11&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">123</span><span class="p">);</span>
+        <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;sig&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">SigModel</span><span class="o">::</span><span class="na">sign</span><span class="p">(</span><span class="nv">$post</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nx">SigModel</span><span class="o">::</span><span class="na">checkSig</span><span class="p">(</span><span class="nv">$post</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2016-11-07</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/php/">php</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/hexo/" class="prev" rel="prev" title="Hexo"><i class="fas fa-angle-left fa-fw"></i>Hexo</a>
+            <a href="/posts/docker/" class="next" rel="next" title="Docker容器开发">Docker容器开发<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0-DEV">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a
+                    href="/"
+                    target="_blank"></a></span></div>
+    </div>
+</footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

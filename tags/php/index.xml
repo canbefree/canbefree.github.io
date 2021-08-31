@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>php - 标签 - canbefree博客</title>
+        <link>https://canbefree.github.io/tags/php/</link>
+        <description>php - 标签 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 07 Nov 2016 04:44:55 &#43;0000</lastBuildDate><atom:link href="https://canbefree.github.io/tags/php/" rel="self" type="application/rss+xml" /><item>
+    <title>laravel</title>
+    <link>https://canbefree.github.io/posts/laravel/</link>
+    <pubDate>Mon, 07 Nov 2016 04:44:55 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/laravel/</guid>
+    <description><![CDATA[laravel介绍 快速开发,composer,less laravel注意事项 搭建的时候 一定要把域名的根目录指向 public.因为larave]]></description>
+</item></channel>
+</rss>

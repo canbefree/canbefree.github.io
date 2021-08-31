@@ -1,5 +1,5 @@
 # 删除所有文件(除了public)
-ls |grep -vE 'publis|deploy.sh' |xargs rm -r
+ls |grep -vE 'public|deploy.sh' |xargs rm -r
 
 
 mv public/* .
