@@ -1,7 +1,8 @@
 ---
 title: "HUGO"
 date: 2021-07-01T08:20:30Z
-draft: true
+author: xieyt01
+draft: false
 ---
 
 ### hugo的介绍
@@ -38,6 +39,7 @@ hugo是一个 **不一般的** 静态网站生成器
 
 
 #### mermaid支持
+如果theme不支持的话
 ```html
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({ startOnLoad: true });</script>
@@ -47,6 +49,11 @@ hugo是一个 **不一般的** 静态网站生成器
   })
 </script>
 ```
+{{< mermaid >}}
+graph LR
+A --> D
+{{< /mermaid >}}
+
 
 #### 评论支持
 [文档](https://github.com/apps/utterances)
@@ -63,13 +70,20 @@ hugo是一个 **不一般的** 静态网站生成器
 
 
 ### 推荐主题
+**docuapi**
 
-docuapi: `https://hub.fastgit.org/bep/docuapi`
+`https://hub.fastgit.org/bep/docuapi`
+
 为document编写而生
 
 ![docuapi](./docuapi.png)
 
-LoveIt `github.com/dillonzq/LoveIt`
+**LoveIt**
+
+ `github.com/dillonzq/LoveIt`
+
 https://hugoloveit.com/categories/documentation/
 
 比较养眼的主题了
+
+
