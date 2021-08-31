@@ -24,6 +24,12 @@ hugo是一个 **不一般的** 静态网站生成器
 	- 随时随地发布,无依赖(go特性)
 	- Toml Yaml Json配置文件支持
 
+### hugo安装
+
+> hugo的安装，下载源码 执行 **go install --tags extended**  
+
+[源码地址](https://github.com/gohugoio/hugo) 
+
 ### 基础支持:
 - [x] 支持mermaid
 - [x] 支持mathjax
@@ -51,10 +57,17 @@ hugo是一个 **不一般的** 静态网站生成器
 ![hugo](./hugo.png "img-size-100-200")
 
 
-### hugo安装
-
-> hugo的安装，下载源码 执行 **go install --tags extended**  
-
-[源码地址](https://github.com/gohugoio/hugo) 
 
 
+### hugo help
+
+
+### 推荐主题
+
+docuapi: `https://hub.fastgit.org/bep/docuapi`
+为document编写而生
+
+![docuapi](./docuapi.png)
+
+LoveIt `hugo mod get -u github.com/dillonzq/LoveIt`
+比较养眼的主题了
