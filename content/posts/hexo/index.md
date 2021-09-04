@@ -1,7 +1,7 @@
 ---
 title: Hexo
 date: 2016-10-10 05:05:26
-author: xieyt01
+author: canbefree
 categories: [blog]
 tags:
     - hexo

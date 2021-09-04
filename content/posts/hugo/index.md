@@ -1,14 +1,28 @@
 ---
 title: "HUGO"
+weight: 2
 date: 2021-07-01T08:20:30Z
-author: xieyt01
+author: canbefree
 categories: [blog,golang]
 draft: false
+math:
+  enable: true
+toc:
+  auto: true
 tags:
     - hexo
     - blog
 
 ---
+- [hugo的介绍](#hugo的介绍)
+- [hugo安装](#hugo安装)
+- [基础支持](#基础支持)
+	- [mermaid支持](#mermaid支持)
+	- [评论支持](#评论支持)
+	- [本地资源](#本地资源)
+	- [数学公式](#数学公式)
+- [hugo help](#hugo-help)
+- [推荐主题](#推荐主题)
 
 ### hugo的介绍
 hugo是一个 **不一般的** 静态网站生成器
@@ -36,7 +50,7 @@ hugo是一个 **不一般的** 静态网站生成器
 
 [源码地址](https://github.com/gohugoio/hugo) 
 
-### 基础支持:
+### 基础支持
 - [x] 支持mermaid
 - [x] 支持mathjax
 - [x] 评论
@@ -44,7 +58,7 @@ hugo是一个 **不一般的** 静态网站生成器
 
 
 #### mermaid支持
-如果theme不支持的话
+如果theme不支持的话,可以通过修改模板自动引入： 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({ startOnLoad: true });</script>
@@ -54,6 +68,14 @@ hugo是一个 **不一般的** 静态网站生成器
   })
 </script>
 ```
+有些主题是天然支持的,比如LoveIt通过 shortcode 实现
+```markdown
+{{</* mermaid */>}}
+graph LR
+A --> D
+{{</* /mermaid */>}}
+```
+
 {{< mermaid >}}
 graph LR
 A --> D
@@ -68,7 +90,18 @@ A --> D
 
 ![hugo](./hugo.png "img-size-100-200")
 
+#### 数学公式
+修改主题配置文件
+```toml
+[params.math]
+  enable = true   
+```
 
+```markdown
+# 每个md文件前加上tag 
+math:
+  enable: true
+```
 
 
 ### hugo help
@@ -89,6 +122,6 @@ A --> D
 
 https://hugoloveit.com/categories/documentation/
 
-比较养眼的主题了
+图片代码支持都比较好
 
 

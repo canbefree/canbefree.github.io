@@ -2,9 +2,9 @@
 title: 爬虫
 date: 2016-10-09 09:15:52
 desc: 爬虫：高效率,断点续爬,内存消耗低
-author: xieyt01
+author: canbefree
 categories: [python]
-tags: [spider,tool,scrapy,python]
+tags: [spider,python]
 ---
 ### python爬虫
 

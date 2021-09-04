@@ -20,6 +20,9 @@ theme = "LoveIt"
   keepStatic = false
   auto = true 
 
+[params.math]
+  enable = true   
+
 [menu]
   [[menu.main]]
     identifier = "posts"
@@ -56,5 +59,3 @@ theme = "LoveIt"
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
 
-[params.math]
-  enable = true 
