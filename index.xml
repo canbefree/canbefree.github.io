@@ -3,7 +3,7 @@
         <title>canbefree博客</title>
         <link>https://canbefree.github.io/</link>
         <description>canbefree博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 04 Sep 2021 09:16:30 &#43;0800</lastBuildDate>
             <atom:link href="https://canbefree.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>HUGO</title>
@@ -11,7 +11,21 @@
     <pubDate>Thu, 01 Jul 2021 08:20:30 &#43;0000</pubDate>
     <author>作者</author>
     <guid>https://canbefree.github.io/posts/hugo/</guid>
-    <description><![CDATA[hugo的介绍 hugo是一个 不一般的 静态网站生成器 官方文档 中文文档 安全性: 基于go module文件,保证第三方插件的安全(checksum)]]></description>
+    <description><![CDATA[hugo的介绍 hugo安装 基础支持 mermaid支持 评论支持 本地资源 数学公式 hugo help 推荐主题 hugo的介绍 hugo是一个 不一般的 静态网站生成器 官]]></description>
+</item><item>
+    <title>Markdown</title>
+    <link>https://canbefree.github.io/posts/markdown/</link>
+    <pubDate>Sat, 04 Sep 2021 09:16:30 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/markdown/</guid>
+    <description><![CDATA[Markdown语法 数学公式 mermaid 标签 表格 待办事项 html标签 脚注 扩展阅读 数学公式详情 平方 求和 极限 mermaid详情 graph sequenceDiagram classDiagram uml关系 问题 在gra]]></description>
+</item><item>
+    <title>Ginkgo</title>
+    <link>https://canbefree.github.io/posts/ginkgo/</link>
+    <pubDate>Wed, 01 Sep 2021 22:12:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/ginkgo/</guid>
+    <description><![CDATA[TDD BDD ginkgo 基础用法 HOOKS BeforeSuite 和 AfterSuite beforeeach JustBeforeEach Describe, Context It and Specs by 跳过代码 Focused Parallel Specs 避免污染测试 异步测试 Benchmark Tests TDD BDD 测试驱动开发 (TDD)： 敏捷开发，测试先行； 行为驱动开发: 帮]]></description>
 </item><item>
     <title>本地笔记怎么做？</title>
     <link>https://canbefree.github.io/posts/typora/</link>

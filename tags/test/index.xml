@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>test - 标签 - canbefree博客</title>
+        <link>https://canbefree.github.io/tags/test/</link>
+        <description>test - 标签 - canbefree博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 01 Sep 2021 22:12:51 &#43;0800</lastBuildDate><atom:link href="https://canbefree.github.io/tags/test/" rel="self" type="application/rss+xml" /><item>
+    <title>Ginkgo</title>
+    <link>https://canbefree.github.io/posts/ginkgo/</link>
+    <pubDate>Wed, 01 Sep 2021 22:12:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://canbefree.github.io/posts/ginkgo/</guid>
+    <description><![CDATA[TDD BDD ginkgo 基础用法 HOOKS BeforeSuite 和 AfterSuite beforeeach JustBeforeEach Describe, Context It and Specs by 跳过代码 Focused Parallel Specs 避免污染测试 异步测试 Benchmark Tests TDD BDD 测试驱动开发 (TDD)： 敏捷开发，测试先行； 行为驱动开发: 帮]]></description>
+</item></channel>
+</rss>

@@ -2,15 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://canbefree.github.io/posts/hugo/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/</loc><lastmod>2021-09-04T09:16:30&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/posts/markdown/</loc><lastmod>2021-09-04T09:16:30&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/posts/</loc><lastmod>2021-09-04T09:16:30&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/categories/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/posts/ginkgo/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/tags/golang/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/categories/golang/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/tags/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
+            <loc>https://canbefree.github.io/tags/test/</loc><lastmod>2021-09-01T22:12:51&#43;08:00</lastmod></url><url>
             <loc>https://canbefree.github.io/tags/blog/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/categories/blog/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/categories/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/categories/golang/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/tags/hexo/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/posts/hugo/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/posts/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/tags/</loc><lastmod>2021-07-01T08:20:30&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/posts/typora/</loc><lastmod>2020-10-09T09:15:52&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/tags/docker/</loc><lastmod>2018-06-19T16:28:53&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/posts/docker/</loc><lastmod>2018-06-19T16:28:53&#43;00:00</lastmod></url><url>
@@ -20,7 +24,5 @@
             <loc>https://canbefree.github.io/posts/hexo/</loc><lastmod>2016-10-10T05:05:26&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/tags/python/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/categories/python/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/tags/scrapy/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/tags/spider/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url><url>
-            <loc>https://canbefree.github.io/tags/tool/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url><url>
             <loc>https://canbefree.github.io/posts/spider/</loc><lastmod>2016-10-09T09:15:52&#43;00:00</lastmod></url></urlset>

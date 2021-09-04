@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Markdown - canbefree博客</title><meta name="Description" content=""><meta property="og:title" content="Markdown" />
+<meta property="og:description" content="Markdown语法 数学公式 mermaid 标签 表格 待办事项 html标签 脚注 扩展阅读 数学公式详情 平方 求和 极限 mermaid详情 graph sequenceDiagram classDiagram uml关系 问题 在gra" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://canbefree.github.io/posts/markdown/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-04T09:16:30+08:00" />
+<meta property="article:modified_time" content="2021-09-04T09:16:30+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Markdown"/>
+<meta name="twitter:description" content="Markdown语法 数学公式 mermaid 标签 表格 待办事项 html标签 脚注 扩展阅读 数学公式详情 平方 求和 极限 mermaid详情 graph sequenceDiagram classDiagram uml关系 问题 在gra"/>
+<meta name="application-name" content="canbefree博客">
+<meta name="apple-mobile-web-app-title" content="canbefree博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://canbefree.github.io/posts/markdown/" /><link rel="prev" href="https://canbefree.github.io/posts/ginkgo/" /><link rel="next" href="https://canbefree.github.io/posts/hugo/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Markdown",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/canbefree.github.io\/posts\/markdown\/"
+        },"genre": "posts","wordcount":  652 ,
+        "url": "https:\/\/canbefree.github.io\/posts\/markdown\/","datePublished": "2021-09-04T09:16:30+08:00","dateModified": "2021-09-04T09:16:30+08:00","publisher": {
+            "@type": "Organization",
+            "name": "canbefree"},"author": {
+                "@type": "Person",
+                "name": "canbefree"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="canbefree博客">canbefree博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="canbefree博客">canbefree博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Markdown</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>canbefree</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-04">2021-09-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 652 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题">问题</a>
+      <ul>
+        <li><a href="#在graph视图中如何输出">在graph视图中，如何输出()</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#数学公式">数学公式</a></li>
+    <li><a href="#mermaid">mermaid</a></li>
+    <li><a href="#标签">标签</a></li>
+    <li><a href="#表格">表格</a></li>
+    <li><a href="#待办事项">待办事项</a></li>
+    <li><a href="#html标签">html标签</a></li>
+    <li><a href="#脚注">脚注</a></li>
+    <li><a href="#扩展阅读">扩展阅读</a>
+      <ul>
+        <li><a href="#数学公式详情">数学公式详情</a></li>
+        <li><a href="#mermaid详情">mermaid详情</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li><a href="#markdown%e8%af%ad%e6%b3%95" rel="">Markdown语法</a>
+<ul>
+<li><a href="#%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f" rel="">数学公式</a></li>
+<li><a href="#mermaid" rel="">mermaid</a></li>
+<li><a href="#%e6%a0%87%e7%ad%be" rel="">标签</a></li>
+<li><a href="#%e8%a1%a8%e6%a0%bc" rel="">表格</a></li>
+<li><a href="#%e5%be%85%e5%8a%9e%e4%ba%8b%e9%a1%b9" rel="">待办事项</a></li>
+<li><a href="#html%e6%a0%87%e7%ad%be" rel="">html标签</a></li>
+<li><a href="#%e8%84%9a%e6%b3%a8" rel="">脚注</a></li>
+<li><a href="#%e6%89%a9%e5%b1%95%e9%98%85%e8%af%bb" rel="">扩展阅读</a>
+<ul>
+<li><a href="#%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e8%af%a6%e6%83%85" rel="">数学公式详情</a>
+<ul>
+<li><a href="#%e5%b9%b3%e6%96%b9" rel="">平方</a></li>
+<li><a href="#%e6%b1%82%e5%92%8c" rel="">求和</a></li>
+<li><a href="#%e6%9e%81%e9%99%90" rel="">极限</a></li>
+</ul>
+</li>
+<li><a href="#mermaid%e8%af%a6%e6%83%85" rel="">mermaid详情</a>
+<ul>
+<li><a href="#graph" rel="">graph</a></li>
+<li><a href="#sequencediagram" rel="">sequenceDiagram</a></li>
+<li><a href="#classdiagram" rel="">classDiagram</a>
+<ul>
+<li><a href="#uml%e5%85%b3%e7%b3%bb" rel="">uml关系</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="问题">问题</h2>
+<h3 id="在graph视图中如何输出">在graph视图中，如何输出()</h3>
+<div class="mermaid" id="id-1"></div>
+<h1 id="markdown语法">Markdown语法</h1>
+<h2 id="数学公式">数学公式</h2>
+<p>mathjax:  <a href="https://oysz2016.github.io/post/8611e6fb.html" target="_blank" rel="noopener noreffer">https://oysz2016.github.io/post/8611e6fb.html</a></p>
+<p><a href="#%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f%e8%af%a6%e6%83%85" rel="">goto</a></p>
+<p>$$ c = \pm\sqrt{a^2 + b^2} $$</p>
+<h2 id="mermaid">mermaid</h2>
+<p><a href="#mermaid%e8%af%a6%e6%83%85" rel="">goto</a></p>
+<h2 id="标签">标签</h2>
+<p>标签和颜色</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/label-msg-yellow"
+        data-srcset="https://img.shields.io/badge/label-msg-yellow, https://img.shields.io/badge/label-msg-yellow 1.5x, https://img.shields.io/badge/label-msg-yellow 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/label-msg-yellow"
+        title="https://img.shields.io/badge/label-msg-yellow" /></p>
+<p>标签和默认图标</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/label-msg-yellow?logo=docker"
+        data-srcset="https://img.shields.io/badge/label-msg-yellow?logo=docker, https://img.shields.io/badge/label-msg-yellow?logo=docker 1.5x, https://img.shields.io/badge/label-msg-yellow?logo=docker 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/label-msg-yellow?logo=docker"
+        title="https://img.shields.io/badge/label-msg-yellow?logo=docker" /></p>
+<p>官网图标集合 <a href="https://simpleicons.org/" target="_blank" rel="noopener noreffer">https://simpleicons.org/</a></p>
+<blockquote>
+<p>包含空格请用 - 代替 比如 <em><del>Github Actions</del></em>  <!-- raw HTML omitted -->Github-Actions 或 github-actions<!-- raw HTML omitted --></p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions"
+        data-srcset="https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions, https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions 1.5x, https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions"
+        title="https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions" /></p>
+<h2 id="表格">表格</h2>
+<p><!-- raw HTML omitted -->Ctrl<!-- raw HTML omitted --> + T</p>
+<table>
+<thead>
+<tr>
+<th>表格</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="待办事项">待办事项</h2>
+<ul>
+<li><i class="far fa-check-square fa-fw"></i> 事项1</li>
+</ul>
+<h2 id="html标签">html标签</h2>
+<p>键盘标签 kbd</p>
+<p><!-- raw HTML omitted -->ctrl<!-- raw HTML omitted --> + <!-- raw HTML omitted -->shift<!-- raw HTML omitted --> + k</p>
+<p>html转义字符</p>
+<p> &lt;
+&gt;
+&amp;
+&quot;
+©</p>
+<p>xml转义字符</p>
+<p>&lt;
+&gt;
+&amp;
+&quot;
+'</p>
+<h2 id="脚注">脚注</h2>
+<p>脚注[<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>]</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<hr>
+<h3 id="数学公式详情">数学公式详情</h3>
+<h4 id="平方">平方</h4>
+<p>$$
+a^22
+$$</p>
+<h4 id="求和">求和</h4>
+<p>$$
+\sum_{i=1}^na_i
+$$</p>
+<h4 id="极限">极限</h4>
+<p>$$
+\lim_{x-&gt;0}
+$$</p>
+<h3 id="mermaid详情">mermaid详情</h3>
+<h4 id="graph">graph</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Markdown" data-lang="Markdown">graph RL
+A(&#34;()&#34;)
+B((&#34;(())&#34;))
+C{{&#34;{{}}&#34;}}
+D{&#34;{}&#34;}
+</code></pre></div><div class="mermaid" id="id-2"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">graph LR
+	classDef Relation fill yellow
+	classDef Entity fill <span class="ni">#cf8d2e</span>
+	subgraph 回答
+        C(回答)
+        C1(题型对应答案)
+        C2(开始结束时间)
+	end
+	C1--&gt;C
+	C2--&gt;C
+	subgraph 问卷
+        A(问卷-Survey)
+        A1((编号))
+        A2((问券说明))
+        A4((描述))
+    end
+	subgraph 表单
+        F(表单-Form)
+        F1((表单类型))
+        F2((排序))
+        F3((标题))
+    end
+	
+	F1--&gt;F
+	F2--&gt;F
+	
+	A1--&gt;A
+	A2--&gt;A
+	A4--&gt;A
+	subgraph 题型
+        B(题型-Row)
+        B1((编号))
+        B4((类型))
+        B5((自定义字段))
+	end
+	subgraph 选项
+		Q(选项)
+	end
+
+	B1--&gt;B
+	F3--&gt;F
+	B4--&gt;B
+	Q--n---r5--1---B 
+	B5--&gt;B
+	
+	
+	U(用户)
+	r1{关系1}
+	r2{关系2}
+	r3{关系3}
+	r4{关系4}
+	r5{关系5}
+	class r1,r2,r3,r4,r5 Relation
+	class A,B,C,D,U,F,Q Entity
+	
+	A --1--- r1  --n--- F
+	F --1--- r3--n---B
+	
+	C --1--- r2 --1--- Q
+	U --1---r4--n--- C
+	
+	
+</code></pre></div><div class="mermaid" id="id-3"></div>
+<h4 id="sequencediagram">sequenceDiagram</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John --&gt;&gt;Alice: Great!
+    Alice -&gt;&gt;John: See you later!
+</code></pre></div><div class="mermaid" id="id-4"></div>
+<h4 id="classdiagram">classDiagram</h4>
+<h5 id="uml关系">uml关系</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classA --|&gt; classB : Inheritance 表示A继承B
+</code></pre></div><div class="mermaid" id="id-5"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classC --* classD : Composition D由C组合而成，当D不存在，C也不复存在
+</code></pre></div><div class="mermaid" id="id-6"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classE --o classF : Aggregation E 大雁 F 雁群
+</code></pre></div><div class="mermaid" id="id-7"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classG --&gt; classH : Association G关联H  G作为H的成员变量 
+</code></pre></div><div class="mermaid" id="id-8"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classI -- classJ : Link(Solid) 
+</code></pre></div><div class="mermaid" id="id-9"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classK ..&gt; classL : Dependency K依赖L 
+</code></pre></div><div class="mermaid" id="id-10"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+class classN{
+	<span class="err">&lt;</span><span class="p">&lt;</span><span class="nt">interface</span><span class="p">&gt;</span>&gt;
+}
+classM ..|&gt; classN : Realization    M 实习了 N接口
+</code></pre></div><div class="mermaid" id="id-11"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">classDiagram
+classO .. classP : Link(Dashed)
+</code></pre></div><div class="mermaid" id="id-12"></div>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>我的脚注释义&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-09-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/ginkgo/" class="prev" rel="prev" title="Ginkgo"><i class="fas fa-angle-left fa-fw"></i>Ginkgo</a>
+            <a href="/posts/hugo/" class="next" rel="next" title="HUGO">HUGO<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0-DEV">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a
+                    href="/"
+                    target="_blank"></a></span></div>
+    </div>
+</footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/mermaid/mermaid.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/mermaid/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"data":{"id-1":"graph LR\nA --预处理--\u003e B --编译--\u003e C --汇编--\u003e D --\"链接(ld)\"--\u003e E","id-10":"classDiagram\nclassE --o classF : Aggregation E 大雁 F 雁群","id-11":"classDiagram\nclass classN{\n\t\u003c\u003cinterface\u003e\u003e\n}\nclassM ..|\u003e classN : Realization    M 实习了 N接口","id-12":"classDiagram\nclassO .. classP : Link(Dashed)","id-2":"graph RL\nA(\"()\")\nB((\"(())\"))\nC{{\"{{}}\"}}\nD{\"{}\"}","id-3":"graph LR\n\tclassDef Relation fill yellow\n\tclassDef Entity fill #cf8d2e\n\tsubgraph 回答\n        C(回答)\n        C1(题型对应答案)\n        C2(开始结束时间)\n\tend\n\tC1--\u003eC\n\tC2--\u003eC\n\tsubgraph 问卷\n        A(问卷-Survey)\n        A1((编号))\n        A2((问券说明))\n        A4((描述))\n    end\n\tsubgraph 表单\n        F(表单-Form)\n        F1((表单类型))\n        F2((排序))\n        F3((标题))\n    end\n\t\n\tF1--\u003eF\n\tF2--\u003eF\n\t\n\tA1--\u003eA\n\tA2--\u003eA\n\tA4--\u003eA\n\tsubgraph 题型\n        B(题型-Row)\n        B1((编号))\n        B4((类型))\n        B5((自定义字段))\n\tend\n\tsubgraph 选项\n\t\tQ(选项)\n\tend\n\n\tB1--\u003eB\n\tF3--\u003eF\n\tB4--\u003eB\n\tQ--n---r5--1---B \n\tB5--\u003eB\n\t\n\t\n\tU(用户)\n\tr1{关系1}\n\tr2{关系2}\n\tr3{关系3}\n\tr4{关系4}\n\tr5{关系5}\n\tclass r1,r2,r3,r4,r5 Relation\n\tclass A,B,C,D,U,F,Q Entity\n\t\n\tA --1--- r1  --n--- F\n\tF --1--- r3--n---B\n\t\n\tC --1--- r2 --1--- Q\n\tU --1---r4--n--- C\n\t","id-4":"sequenceDiagram\n    Alice-\u003e\u003eJohn: Hello John, how are you?\n    John --\u003e\u003eAlice: Great!\n    Alice -\u003e\u003eJohn: See you later!","id-5":"classDiagram\nclassA --|\u003e classB : Inheritance 表示A继承B","id-6":"classDiagram\nclassC --* classD : Composition D由C组合而成，当D不存在，C也不复存在","id-7":"classDiagram\nclassE --o classF : Aggregation E 大雁 F 雁群","id-8":"classDiagram\nclassE --o classF : Aggregation E 大雁 F 雁群","id-9":"classDiagram\nclassE --o classF : Aggregation E 大雁 F 雁群"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

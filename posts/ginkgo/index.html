@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Ginkgo - canbefree博客</title><meta name="Description" content=""><meta property="og:title" content="Ginkgo" />
+<meta property="og:description" content="TDD BDD ginkgo 基础用法 HOOKS BeforeSuite 和 AfterSuite beforeeach JustBeforeEach Describe, Context It and Specs by 跳过代码 Focused Parallel Specs 避免污染测试 异步测试 Benchmark Tests TDD BDD 测试驱动开发 (TDD)： 敏捷开发，测试先行； 行为驱动开发: 帮" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://canbefree.github.io/posts/ginkgo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-01T22:12:51+08:00" />
+<meta property="article:modified_time" content="2021-09-01T22:12:51+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ginkgo"/>
+<meta name="twitter:description" content="TDD BDD ginkgo 基础用法 HOOKS BeforeSuite 和 AfterSuite beforeeach JustBeforeEach Describe, Context It and Specs by 跳过代码 Focused Parallel Specs 避免污染测试 异步测试 Benchmark Tests TDD BDD 测试驱动开发 (TDD)： 敏捷开发，测试先行； 行为驱动开发: 帮"/>
+<meta name="application-name" content="canbefree博客">
+<meta name="apple-mobile-web-app-title" content="canbefree博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://canbefree.github.io/posts/ginkgo/" /><link rel="prev" href="https://canbefree.github.io/posts/typora/" /><link rel="next" href="https://canbefree.github.io/posts/markdown/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ginkgo",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/canbefree.github.io\/posts\/ginkgo\/"
+        },"genre": "posts","keywords": "golang, test","wordcount":  1160 ,
+        "url": "https:\/\/canbefree.github.io\/posts\/ginkgo\/","datePublished": "2021-09-01T22:12:51+08:00","dateModified": "2021-09-01T22:12:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": "canbefree"},"author": {
+                "@type": "Person",
+                "name": "canbefree"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="canbefree博客">canbefree博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="canbefree博客">canbefree博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ginkgo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>canbefree</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1160 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#tdd-bdd">TDD BDD</a></li>
+    <li><a href="#ginkgo">ginkgo</a>
+      <ul>
+        <li><a href="#基础用法">基础用法</a></li>
+        <li><a href="#hooks">HOOKS</a></li>
+        <li><a href="#describe-context-it-and-specs-by">Describe, Context It and Specs by</a></li>
+        <li><a href="#跳过代码">跳过代码</a></li>
+        <li><a href="#focused">Focused</a></li>
+        <li><a href="#parallel-specs">Parallel Specs</a></li>
+        <li><a href="#避免污染测试">避免污染测试</a></li>
+        <li><a href="#异步测试">异步测试</a></li>
+        <li><a href="#benchmark-tests">Benchmark Tests</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li><a href="#tdd-bdd" rel="">TDD BDD</a></li>
+<li><a href="#ginkgo" rel="">ginkgo</a>
+<ul>
+<li><a href="#%e5%9f%ba%e7%a1%80%e7%94%a8%e6%b3%95" rel="">基础用法</a></li>
+<li><a href="#hooks" rel="">HOOKS</a>
+<ul>
+<li><a href="#beforesuite-%e5%92%8c-aftersuite" rel="">BeforeSuite 和 AfterSuite</a></li>
+<li><a href="#beforeeach" rel="">beforeeach</a></li>
+<li><a href="#justbeforeeach" rel="">JustBeforeEach</a></li>
+</ul>
+</li>
+<li><a href="#describe-context-it-and-specs-by" rel="">Describe, Context It and Specs by</a></li>
+<li><a href="#%e8%b7%b3%e8%bf%87%e4%bb%a3%e7%a0%81" rel="">跳过代码</a></li>
+<li><a href="#focused" rel="">Focused</a></li>
+<li><a href="#parallel-specs" rel="">Parallel Specs</a></li>
+<li><a href="#%e9%81%bf%e5%85%8d%e6%b1%a1%e6%9f%93%e6%b5%8b%e8%af%95" rel="">避免污染测试</a></li>
+<li><a href="#%e5%bc%82%e6%ad%a5%e6%b5%8b%e8%af%95" rel="">异步测试</a></li>
+<li><a href="#benchmark-tests" rel="">Benchmark Tests</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="tdd-bdd">TDD BDD</h2>
+<p>测试驱动开发 (TDD)： 敏捷开发，测试先行；</p>
+<p>行为驱动开发: 帮助开发人员design软件，换言之，BDD 展开来讲可以当作一个设计文档来阅读 （适合DDD领域驱动）</p>
+<h2 id="ginkgo">ginkgo</h2>
+<p>一个BDD框架</p>
+<h3 id="基础用法">基础用法</h3>
+<p><code>ginkgo bootstrap // 初始化套件</code></p>
+<p><code>ginkgo generate demo //生成一个测试</code></p>
+<h3 id="hooks">HOOKS</h3>
+<h4 id="beforesuite-和-aftersuite">BeforeSuite 和 AfterSuite</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestV1</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nf">RegisterFailHandler</span><span class="p">(</span><span class="nx">Fail</span><span class="p">)</span>
+	<span class="nf">RunSpecs</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&#34;V1 Suite&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">BeforeSuite</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 可以用来初始化DB
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hello,world!&#34;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">AfterSuite</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	
+<span class="p">})</span>
+
+</code></pre></div><blockquote>
+<p>Both <code>BeforeSuite</code> and <code>AfterSuite</code> can be run <strong>asynchronously</strong> by passing a function that takes a <strong>Done</strong> parameter.</p>
+</blockquote>
+<blockquote>
+<p>有test-pollution,所以Done被 deprecated</p>
+</blockquote>
+<p><strong>推荐方式</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nf">It</span><span class="p">(</span><span class="s">&#34;...&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">interface</span><span class="p">{})</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="c1">// user test code to run asynchronously
+</span><span class="c1"></span>		<span class="nb">close</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="c1">//signifies the code is done
+</span><span class="c1"></span>	<span class="p">}()</span>
+	<span class="nf">Eventually</span><span class="p">(</span><span class="nx">done</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">).</span><span class="nf">Should</span><span class="p">(</span><span class="nf">BeClosed</span><span class="p">())</span>
+<span class="p">})</span>
+</code></pre></div><p><a href="https://github.com/onsi/ginkgo/blob/v2/docs/MIGRATING_TO_V2.md#removed-async-testing" target="_blank" rel="noopener noreffer">https://github.com/onsi/ginkgo/blob/v2/docs/MIGRATING_TO_V2.md#removed-async-testing</a></p>
+<h4 id="beforeeach">beforeeach</h4>
+<p>执行时机：每个单元测试的开始​,负责初始化或重置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go">    <span class="nf">BeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">book</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nf">NewBookFromJSON</span><span class="p">(</span><span class="s">`{
+</span><span class="s">            &#34;title&#34;:&#34;Les Miserables&#34;,
+</span><span class="s">            &#34;author&#34;:&#34;Victor Hugo&#34;,
+</span><span class="s">            &#34;pages&#34;:2783
+</span><span class="s">        }`</span><span class="p">)</span>
+    <span class="p">})</span>
+</code></pre></div><h4 id="justbeforeeach">JustBeforeEach</h4>
+<blockquote>
+<p>会在所有的beforeEach 后运行</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// JustBeforeEach 
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;Main&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">c</span> <span class="kt">int</span>
+	<span class="nf">BeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">c</span> <span class="p">=</span> <span class="mi">2</span>
+	<span class="p">})</span>
+	<span class="nf">JustBeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 
+</span><span class="c1"></span>		<span class="nx">c</span> <span class="p">=</span> <span class="mi">3</span>
+	<span class="p">})</span>
+	<span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nf">BeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 这里不会被覆盖
+</span><span class="c1"></span>			<span class="nx">c</span> <span class="p">=</span> <span class="mi">4</span>
+		<span class="p">})</span>
+		<span class="nf">It</span><span class="p">(</span><span class="s">&#34;should be a 3&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nf">Expect</span><span class="p">(</span><span class="nx">c</span><span class="p">).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+		<span class="p">})</span>
+	<span class="p">})</span>
+
+<span class="p">})</span>
+</code></pre></div><h3 id="describe-context-it-and-specs-by">Describe, Context It and Specs by</h3>
+<p><strong>describe</strong> ：   describe the individual behaviors of your code   一个行为一个describe 比如说下单</p>
+<p><em>context</em>:  exercise those behaviors under different circumstances 每个行为中不同场景： 下单成功，下单失败</p>
+<p>Specs就是 Context 的别名，让代码可读性更强。</p>
+<p>It： single specs 最小场景 申明用例, 期望这个用例得到的结果</p>
+<p>by: 添加注释用的 用ginkgo -v 才能看到</p>
+<h3 id="跳过代码">跳过代码</h3>
+<p>Using the <code>P</code> and <code>X</code> prefixes</p>
+<p>Skip</p>
+<h3 id="focused">Focused</h3>
+<p>专注模式 using the F prefixes</p>
+<h3 id="parallel-specs">Parallel Specs</h3>
+<p>并发模式</p>
+<blockquote>
+<p>ginkgo -p</p>
+</blockquote>
+<blockquote>
+<p>ginkgo -p -nodes=N (默认nodes = runtime.NumCPU())</p>
+</blockquote>
+<p>并发模式下第三方进程管理：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="s">&#34;github.com/onsi/ginkgo/config&#34;</span>
+
+<span class="nx">config</span><span class="p">.</span><span class="nx">GinkgoConfig</span><span class="p">.</span><span class="nx">ParallelNode</span>  <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">index</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">current</span> <span class="nf">node</span> <span class="p">(</span><span class="nx">starts</span> <span class="nx">with</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">goes</span> <span class="nx">up</span> <span class="nx">to</span> <span class="nx">N</span><span class="p">)</span>
+</code></pre></div><p>并发模式下的单例：先创建db实例，再初始化所有的 client</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// SynchronizedBeforeSuite
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">SynchronizedBeforeSuite</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+    <span class="nx">port</span> <span class="o">:=</span> <span class="mi">4000</span> <span class="o">+</span> <span class="nx">config</span><span class="p">.</span><span class="nx">GinkgoConfig</span><span class="p">.</span><span class="nx">ParallelNode</span>
+
+    <span class="nx">dbRunner</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">NewRunner</span><span class="p">()</span>
+    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dbRunner</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="nx">port</span><span class="p">)</span>
+    <span class="nf">Expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">NotTo</span><span class="p">(</span><span class="nf">HaveOccurred</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">dbRunner</span><span class="p">.</span><span class="nf">Address</span><span class="p">())</span>
+<span class="p">},</span> <span class="kd">func</span><span class="p">(</span><span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dbAddress</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+
+    <span class="nx">dbClient</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">()</span>
+    <span class="nx">err</span> <span class="p">=</span> <span class="nx">dbClient</span><span class="p">.</span><span class="nf">Connect</span><span class="p">(</span><span class="nx">dbAddress</span><span class="p">)</span>
+    <span class="nf">Expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">NotTo</span><span class="p">(</span><span class="nf">HaveOccurred</span><span class="p">())</span>
+<span class="p">})</span>
+</code></pre></div><h3 id="避免污染测试">避免污染测试</h3>
+<blockquote>
+<p>每个变量需要通过beforeeach 来声明.这边变量才会在Context下重新初始化</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;When reading a book&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>                                        <span class="c1">//L1&#39;
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">book</span> <span class="o">*</span><span class="nx">books</span><span class="p">.</span><span class="nx">Book</span>                                                                <span class="c1">//L2&#39;
+</span><span class="c1"></span>    <span class="nx">book</span> <span class="p">=</span> <span class="nx">books</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The Chronicles of Narnia&#34;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1">// create book in parent closure  //L3&#39;   错误！
+</span><span class="c1"></span>
+    <span class="nf">It</span><span class="p">(</span><span class="s">&#34;should increment the page number&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>                                     <span class="c1">//L4&#39;
+</span><span class="c1"></span>        <span class="nx">err</span> <span class="o">:=</span> <span class="nx">book</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>                                                             <span class="c1">//L5&#39;
+</span><span class="c1"></span>        <span class="nf">Expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">NotTo</span><span class="p">(</span><span class="nf">HaveOccurred</span><span class="p">())</span>                                               <span class="c1">//L6&#39;
+</span><span class="c1"></span>        <span class="nf">Expect</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nf">CurrentPage</span><span class="p">()).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>                                         <span class="c1">//L7&#39;
+</span><span class="c1"></span>    <span class="p">})</span>                                                                                  <span class="c1">//L8&#39;
+</span><span class="c1"></span>
+    <span class="nf">Context</span><span class="p">(</span><span class="s">&#34;when the reader finishes the book&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>                               <span class="c1">//L9&#39;
+</span><span class="c1"></span>        <span class="nf">It</span><span class="p">(</span><span class="s">&#34;should not allow them to read more pages&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>                         <span class="c1">//L10&#39;
+</span><span class="c1"></span>            <span class="nx">err</span> <span class="o">:=</span> <span class="nx">book</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>                                                       <span class="c1">//L11&#39;
+</span><span class="c1"></span>            <span class="nf">Expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">NotTo</span><span class="p">(</span><span class="nf">HaveOccurred</span><span class="p">())</span>                                           <span class="c1">//L12&#39;
+</span><span class="c1"></span>            <span class="nf">Expect</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nf">IsFinished</span><span class="p">()).</span><span class="nf">To</span><span class="p">(</span><span class="nf">BeTrue</span><span class="p">())</span>                                      <span class="c1">//L13&#39;
+</span><span class="c1"></span>            <span class="nx">err</span> <span class="p">=</span> <span class="nx">book</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                                                          <span class="c1">//L14&#39;
+</span><span class="c1"></span>            <span class="nf">Expect</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">To</span><span class="p">(</span><span class="nf">HaveOccurred</span><span class="p">())</span>                                              <span class="c1">//L15&#39;
+</span><span class="c1"></span>        <span class="p">})</span>                                                                              <span class="c1">//L16&#39;
+</span><span class="c1"></span>    <span class="p">})</span>                                                                                  <span class="c1">//L17&#39;
+</span><span class="c1"></span><span class="p">})</span>   
+</code></pre></div><blockquote>
+<p>Do not make assertions in container node functions</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;When reading a book&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">book</span> <span class="o">*</span><span class="nx">books</span><span class="p">.</span><span class="nx">Book</span>
+    <span class="nx">book</span> <span class="p">=</span> <span class="nx">books</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The Chronicles of Narnia&#34;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="nf">Expect</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nf">CurrentPage</span><span class="p">()).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nf">Expect</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nf">NumPages</span><span class="p">()).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">300</span><span class="p">))</span>     
+
+    <span class="nf">It</span><span class="p">(</span><span class="s">&#34;...&#34;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div><blockquote>
+<p>data文件建议定义top-level (不会被修改)</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// books_suite_test.go
+</span><span class="c1"></span>
+<span class="kn">package</span> <span class="nx">books_test</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="p">.</span> <span class="s">&#34;github.com/onsi/ginkgo&#34;</span>
+    <span class="p">.</span> <span class="s">&#34;github.com/onsi/gomega&#34;</span>
+
+    <span class="s">&#34;github.com/onsi/books&#34;</span>
+
+    <span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">testConfigData</span> <span class="nx">TestConfigData</span>
+
+<span class="kd">func</span> <span class="nf">TestBooks</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">RegisterFailHandler</span><span class="p">(</span><span class="nx">Fail</span><span class="p">)</span> 
+    <span class="nx">testConfigData</span> <span class="p">=</span> <span class="nf">loadTestISBNs</span><span class="p">(</span><span class="s">&#34;isbn.json&#34;</span><span class="p">)</span>
+    <span class="nf">RunSpecs</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s">&#34;Books Suite&#34;</span><span class="p">)</span>
+<span class="p">}</span>   
+</code></pre></div><blockquote>
+<p>不能在构建阶段load测试文件 (每个Context都会运行一次，严重浪费了资源)</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;Looking up ISBN numbers&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">testConfigData</span> <span class="nx">TestConfigData</span>
+
+    <span class="nf">BeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">testConfigData</span> <span class="p">=</span> <span class="nf">loadTestISBNs</span><span class="p">(</span><span class="s">&#34;isbn.json&#34;</span><span class="p">)</span> <span class="c1">// WRONG!
+</span><span class="c1"></span>    <span class="p">})</span>
+
+    <span class="nf">Context</span><span class="p">(</span><span class="s">&#34;When the book can be found&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">d</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">testConfigData</span> <span class="p">{</span>
+            <span class="nx">d</span> <span class="o">:=</span> <span class="nx">d</span> <span class="c1">//necessary to ensure the correct value is passed to the closure
+</span><span class="c1"></span>            <span class="nf">It</span><span class="p">(</span><span class="s">&#34;returns the correct ISBN number for &#34;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Title</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>                                                
+                <span class="nf">Expect</span><span class="p">(</span><span class="nx">books</span><span class="p">.</span><span class="nf">ISBNFor</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">Title</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Author</span><span class="p">)).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">ISBN</span><span class="p">))</span>
+            <span class="p">})</span>                                                                                            
+        <span class="p">}</span>
+    <span class="p">})</span>                                                                                                
+<span class="p">})</span> 
+</code></pre></div><h3 id="异步测试">异步测试</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nf">It</span><span class="p">(</span><span class="s">&#34;...&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">interface</span><span class="p">{})</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="c1">// user test code to run asynchronously
+</span><span class="c1"></span>		<span class="nb">close</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="c1">//signifies the code is done
+</span><span class="c1"></span>	<span class="p">}()</span>
+	<span class="nf">Eventually</span><span class="p">(</span><span class="nx">done</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">).</span><span class="nf">Should</span><span class="p">(</span><span class="nf">BeClosed</span><span class="p">())</span>
+<span class="p">})</span>
+</code></pre></div><h3 id="benchmark-tests">Benchmark Tests</h3>
+<p>Measure  已废弃</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nf">Measure</span><span class="p">(</span><span class="s">&#34;it should do something hard efficiently&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Benchmarker</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">runtime</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Time</span><span class="p">(</span><span class="s">&#34;runtime&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">output</span> <span class="o">:=</span> <span class="nf">SomethingHard</span><span class="p">()</span>
+        <span class="nf">Expect</span><span class="p">(</span><span class="nx">output</span><span class="p">).</span><span class="nf">To</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">17</span><span class="p">))</span>
+    <span class="p">})</span>
+
+    <span class="nx">Ω</span><span class="p">(</span><span class="nx">runtime</span><span class="p">.</span><span class="nf">Seconds</span><span class="p">()).</span><span class="nf">Should</span><span class="p">(</span><span class="nf">BeNumerically</span><span class="p">(</span><span class="s">&#34;&lt;&#34;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="s">&#34;SomethingHard() shouldn&#39;t take too long.&#34;</span><span class="p">)</span>
+
+    <span class="nx">b</span><span class="p">.</span><span class="nf">RecordValue</span><span class="p">(</span><span class="s">&#34;disk usage (in MB)&#34;</span><span class="p">,</span> <span class="nf">HowMuchDiskSpaceDidYouUse</span><span class="p">())</span>
+<span class="p">},</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">_</span> <span class="p">=</span> <span class="nf">Describe</span><span class="p">(</span><span class="s">&#34;Common&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">e</span> <span class="o">*</span><span class="nx">gmeasure</span><span class="p">.</span><span class="nx">Experiment</span>
+	<span class="nf">BeforeEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">e</span> <span class="p">=</span> <span class="nx">gmeasure</span><span class="p">.</span><span class="nf">NewExperiment</span><span class="p">(</span><span class="s">&#34;my exprement&#34;</span><span class="p">)</span>
+	<span class="p">})</span>
+	<span class="nf">It</span><span class="p">(</span><span class="s">&#34;rand should not bigger then 14&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="c1">// 	actual := common.GetRand(14)
+</span><span class="c1"></span>		<span class="c1">// 	Expect(actual).Should(Not(Equal(14)))
+</span><span class="c1"></span>		<span class="c1">// })
+</span><span class="c1"></span>		<span class="nx">e</span><span class="p">.</span><span class="nf">SampleDuration</span><span class="p">(</span><span class="s">&#34;call&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">idx</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">actual</span> <span class="o">:=</span> <span class="nx">common</span><span class="p">.</span><span class="nf">GetRand</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------------&#34;</span><span class="p">,</span> <span class="nx">actual</span><span class="p">)</span>
+			<span class="nf">Expect</span><span class="p">(</span><span class="nx">actual</span><span class="p">).</span><span class="nf">Should</span><span class="p">(</span><span class="nf">Not</span><span class="p">(</span><span class="nf">Equal</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+		<span class="p">},</span> <span class="nx">gmeasure</span><span class="p">.</span><span class="nx">SamplingConfig</span><span class="p">{</span><span class="nx">N</span><span class="p">:</span> <span class="mi">1000</span><span class="p">})</span>
+
+	<span class="p">})</span>
+	<span class="nf">AfterEach</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+	<span class="p">})</span>
+<span class="p">})</span>
+
+
+<span class="c1">// Name            | N    | Min    | Median | Mean   | StdDev | Max   
+</span><span class="c1">// ===================================================================
+</span><span class="c1">// call [duration] | 1000 | 20.1ms | 20.4ms | 20.7ms | 1.4ms  | 38.8ms
+</span><span class="c1"></span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-09-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">golang</a>,&nbsp;<a href="/tags/test/">test</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/typora/" class="prev" rel="prev" title="本地笔记怎么做？"><i class="fas fa-angle-left fa-fw"></i>本地笔记怎么做？</a>
+            <a href="/posts/markdown/" class="next" rel="next" title="Markdown">Markdown<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.0-DEV">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a
+                    href="/"
+                    target="_blank"></a></span></div>
+    </div>
+</footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
