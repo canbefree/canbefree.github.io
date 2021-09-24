@@ -16,6 +16,7 @@ math:
 	- [表格](#表格)
 	- [待办事项](#待办事项)
 	- [html标签](#html标签)
+		- [html转义字符](#html转义字符)
 	- [脚注](#脚注)
 	- [扩展阅读](#扩展阅读)
 		- [数学公式详情](#数学公式详情)
@@ -27,15 +28,6 @@ math:
 			- [sequenceDiagram](#sequencediagram)
 			- [classDiagram](#classdiagram)
 				- [uml关系](#uml关系)
-## 问题
-
-### 在graph视图中，如何输出()
-
-{{< mermaid >}}
-graph LR
-A --预处理--> B --编译--> C --汇编--> D --"链接(ld)"--> E
-{{< /mermaid >}}
-
 
 # Markdown语法
 
@@ -45,6 +37,7 @@ mathjax:  https://oysz2016.github.io/post/8611e6fb.html
 
 [goto](#数学公式详情)
 
+`$$ c = \pm\sqrt{a^2 + b^2} $$`
 $$ c = \pm\sqrt{a^2 + b^2} $$
 
 
@@ -58,17 +51,17 @@ $$ c = \pm\sqrt{a^2 + b^2} $$
 ## 标签
 
 标签和颜色
-
+`![](https://img.shields.io/badge/label-msg-yellow)`
 ![](https://img.shields.io/badge/label-msg-yellow)
 
 标签和默认图标
-
+`![](https://img.shields.io/badge/label-msg-yellow?logo=docker)`
 ![](https://img.shields.io/badge/label-msg-yellow?logo=docker)
 
 官网图标集合 [https://simpleicons.org/](https://simpleicons.org/)
 
 > 包含空格请用 - 代替 比如 *~~Github Actions~~*  <u>Github-Actions 或 github-actions</u>
-
+`![](https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions)`
 ![](https://img.shields.io/badge/label-msg-yellow?logo=Github-Actions)
 
 
@@ -77,13 +70,11 @@ $$ c = \pm\sqrt{a^2 + b^2} $$
 
 ## 表格 
 
-<kbd>Ctrl</kbd> + T 
-
-| 表格 | A    | B    |
-| ---- | ---- | ---- |
-| A    |      |      |
-| B    |      |      |
-| C    |      |      |
+| 表格 | A   | B   |
+| ---- | --- | --- |
+| A    |     |     |
+| B    |     |     |
+| C    |     |     |
 
 
 
@@ -94,33 +85,30 @@ $$ c = \pm\sqrt{a^2 + b^2} $$
   
 
 ## html标签
+`<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>k</kbd>`
 
-键盘标签 kbd
+<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>k</kbd>
 
-<kbd>ctrl</kbd> + <kbd>shift</kbd> + k
+### html转义字符
 
-html转义字符
-
- &lt;
- &gt;
- &amp;
- &quot;
- &copy;
-
-xml转义字符
-
-&lt; 
-&gt;
-&amp; 
-&quot; 
-&apos;
+| 预览       | 编码         | 释义 |
+| ---------- | ------------ | ---- |
+| &lt;       | `&lt;`       |
+| &gt;       | `&gt;`       |
+| &amp;      | `&amp;`      |
+| &quot;     | `&quot;`     |
+| &apos;     | `&apos;`     |
+| &copy;     | `&copy;`     |
+| &ensp;正文 | `&ensp;`正文 | 缩进 |
 
 ## 脚注
+`脚注[[^脚注1]]`
+
+`[^脚注1]: 我的脚注释义`
 
 脚注[[^脚注1]]
 
 [^脚注1]: 我的脚注释义
-
 
 
 ## 扩展阅读
@@ -152,6 +140,16 @@ $$
 ### mermaid详情
 
 #### graph
+
+```Markdown
+graph LR
+A --预处理--> B --编译--> C --汇编--> D --"链接(ld)"--> E
+```
+
+{{< mermaid >}}
+graph LR
+A --预处理--> B --编译--> C --汇编--> D --"链接(ld)"--> E
+{{< /mermaid >}}
 
 ```Markdown
 graph RL
