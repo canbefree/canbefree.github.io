@@ -164,7 +164,7 @@ Funcs
 	)
 ```
 
-最后的核心代码,本质上还是使用的 Func 函数
+最后的核心代码,本质上还是使用的 Funcs 函数
 
 ```go
 // file: hugo/tpl/tplimpl/template_funcs.go
