@@ -166,6 +166,23 @@ temp := ` hello,	{{.Name}} ` t, err := template.New(&#34;test&#34;).Parse(temp) 
   <footer class="entry-footer"><span title='2022-11-09 11:44:58 +0800 CST'>November 9, 2022</span>&nbsp;·&nbsp;canbefree</footer>
   <a class="entry-link" aria-label="post link to HTML Template Syntax | HUGO" href="http://example.org/posts/html-template/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Ginkgo
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>TDD BDD ginkgo 基础用法 HOOKS BeforeSuite 和 AfterSuite beforeeach JustBeforeEach Describe, Context It and Specs by 跳过代码 Focused Parallel Specs 避免污染测试 异步测试 Benchmark Tests TDD BDD 测试驱动开发 (TDD)： 敏捷开发，测试先行；
+行为驱动开发: 帮助开发人员design软件，换言之，BDD 展开来讲可以当作一个设计文档来阅读 （适合DDD领域驱动）
+ginkgo 一个BDD框架
+基础用法 ginkgo bootstrap // 初始化套件
+ginkgo generate demo //生成一个测试
+HOOKS BeforeSuite 和 AfterSuite func TestV1(t *testing.T) { RegisterFailHandler(Fail) RunSpecs(t, &#34;V1 Suite&#34;) } var _ = BeforeSuite(func() { // 可以用来初始化DB fmt.Println(&#34;hello,world!&#34;) }) var _ = AfterSuite(func() { }) Both BeforeSuite and AfterSuite can be run asynchronously by passing a function that takes a Done parameter....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-01 22:12:51 +0800 CST'>September 1, 2021</span>&nbsp;·&nbsp;canbefree</footer>
+  <a class="entry-link" aria-label="post link to Ginkgo" href="http://example.org/posts/ginkgo/"></a>
+</article>
     </main>
     
 <footer class="footer">

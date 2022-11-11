@@ -52,5 +52,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>golang</title>
+      <link>http://example.org/tags/golang/</link>
+      <pubDate>Wed, 01 Sep 2021 22:12:51 +0800</pubDate>
+      
+      <guid>http://example.org/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>http://example.org/tags/test/</link>
+      <pubDate>Wed, 01 Sep 2021 22:12:51 +0800</pubDate>
+      
+      <guid>http://example.org/tags/test/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

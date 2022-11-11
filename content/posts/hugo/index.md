@@ -4,7 +4,7 @@ weight: 2
 date: 2021-07-01T08:20:30Z
 author: canbefree
 categories: [blog,golang]
-draft: true
+draft: false
 math:
   enable: true
 toc:
@@ -16,9 +16,9 @@ tags:
 - [hugo的介绍](#hugo的介绍)
 - [hugo安装](#hugo安装)
 - [基础支持](#基础支持)
-	- [评论支持](#评论支持)
-	- [本地资源](#本地资源)
-	- [数学公式](#数学公式)
+  - [评论支持](#评论支持)
+  - [本地资源](#本地资源)
+  - [数学公式](#数学公式)
 - [hugo help](#hugo-help)
 - [推荐主题](#推荐主题)
 
