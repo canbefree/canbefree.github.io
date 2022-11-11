@@ -1,6 +1,6 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://canbefree.github.io'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Canbefree'blog"
 
 theme = 'PaperMod'
 publishDir = "docs"
