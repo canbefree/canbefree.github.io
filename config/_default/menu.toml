@@ -1,0 +1,16 @@
+
+[[main]]
+    identifier = 'categories'
+    name = 'categories'
+    url = '/categories/'
+    weight =  10
+[[main]]
+    identifier = 'tags'
+    name = 'tags'
+    url = '/tags/'
+    weight =  20
+[[main]]
+    identifier = 'baidu'
+    name = 'baidu'
+    url = 'https://baidu.com'
+    weight =  20
