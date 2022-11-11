@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>blog on My New Hugo Site</title>
+    <link>http://example.org/tags/blog/</link>
+    <description>Recent content in blog on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Nov 2022 11:44:58 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 08:20:30 +0000</lastBuildDate><atom:link href="http://example.org/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HUGO</title>
       <link>http://example.org/posts/hugo/</link>
@@ -23,15 +23,6 @@
 数学公式 修改主题配置文件
 [params.math] enable = true # 每个md文件前加上tag math: enable: true hugo help 推荐主题 docuapi
 https://hub.fastgit.org/bep/docuapi</description>
-    </item>
-    
-    <item>
-      <title>HTML Template Syntax | HUGO</title>
-      <link>http://example.org/posts/html-template/</link>
-      <pubDate>Wed, 09 Nov 2022 11:44:58 +0800</pubDate>
-      
-      <guid>http://example.org/posts/html-template/</guid>
-      <description>golang html/template</description>
     </item>
     
   </channel>

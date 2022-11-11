@@ -16,5 +16,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>blog</title>
+      <link>http://example.org/categories/blog/</link>
+      <pubDate>Thu, 01 Jul 2021 08:20:30 +0000</pubDate>
+      
+      <guid>http://example.org/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://example.org/categories/golang/</link>
+      <pubDate>Thu, 01 Jul 2021 08:20:30 +0000</pubDate>
+      
+      <guid>http://example.org/categories/golang/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
